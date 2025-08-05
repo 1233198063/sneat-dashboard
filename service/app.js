@@ -1,4 +1,4 @@
-/* 创建web服务，客户端相关的内容，路由，中间件 */
+/* Create web service, client-related content, routes, middleware */
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -29,9 +29,9 @@ app.use(cors())
 app.use(helmet());
 app.use(compression());
 
-// secret：加密字符串 一定要和生成token是使用的一致
-// algorithms：加密算法
-// unless:不需要权限限定访问 /api/
+// secret: encryption string must be consistent with token generation
+// algorithms: encryption algorithm
+// unless: paths that don't require authentication /api/
 // Temporarily disable JWT for testing
 // app.use(expressjwt({ secret: 'token_userdb', algorithms: ['HS256'] }).unless({path:[/^\/api\//]}))
 

@@ -1,5 +1,5 @@
-/* user相关的路由 */
-// 注册，登录，管理员
+/* User-related routes */
+// Registration, login, admin
 
 const express = require('express');
 const bcrypt = require('bcrypt')
@@ -8,46 +8,46 @@ const { register, login } = require('../controller/UserController');
 
 const router = express.Router()
 
-// 注册
+// Register
 router.post('/api/register', async (req, res) => {
     // body   body-parser
     // console.log(req.body);
     const { email, password } = req.body
     const pwd = await bcrypt.hash(password, 10)
     const user = await register({ email, password: pwd })
-    // 把用户信息维护到数据库
+    // Save user information to database
     res.send(user)
 })
 
-// 登录
+// Login
 router.post('/api/login', async (req, res) => {
-    // 用户是否存在
+    // Check if user exists
     const { email, password } = req.body
     const user = await login(email)
 
-    // 用户不存在
+    // User does not exist
     if (!user) {
         return res.status(404).send('user is not found')
     }
 
-    // 密码是否正确
+    // Check if password is correct
     const validPwd = await bcrypt.compare(password, user.password)
     // console.log(validPwd);
 
-    // 密码错误
+    // Password incorrect
     if(!validPwd){
         return res.status(401).send('Invalid password')
     }    
 
-    // 生成token字符串
+    // Generate token string
     const token = jwt.sign({email,password},'token_userdb',{algorithm:'HS256',expiresIn:'30s'})
 
     // res.send('login')
     res.status(200).json({token})
 })
 
-// 非注册和登录接口都要携带token进行验证，验证通过才能访问接口
-// 在请求头上设置 Authorization:Bearer "token字符串"
+// All non-registration and non-login endpoints require token verification
+// Set Authorization:Bearer "token string" in request headers
 router.get('/admin',(req,res)=>{
     console.log(req.auth);
     res.send('welcome')

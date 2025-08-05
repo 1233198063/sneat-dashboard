@@ -1,9 +1,9 @@
-/* 连接数据库，启动接口 */
+/* Connect to database and start API */
 
 const mongoose = require('mongoose')
 const app = require('./app')
 
-// 启动接口
+// Start API
 app.listen(8080,()=>{
     console.log('server is running on port 8080...');
 })

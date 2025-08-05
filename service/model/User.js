@@ -1,4 +1,4 @@
-/* user 的模型对象 */
+/* User model object */
 
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');

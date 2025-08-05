@@ -13,11 +13,11 @@ mongoose.connection.on('open', () => {
     console.log('Connected successful');
 })
 
-// 上传图片保存的路径
+// Path for saving uploaded images
 const fullPath = path.join(__dirname, '/static')
 console.log(fullPath);
 
-// 创建文档结构对象
+// Create document schema object
 const imageSchema = new mongoose.Schema({
     fieldname: String,
     filename: String,
@@ -25,12 +25,12 @@ const imageSchema = new mongoose.Schema({
     mimetype: String
 })
 
-// 创建文档模型对象
+// Create document model object
 const imageModel = mongoose.model('image', imageSchema)
 
-// 配置存储位置,存储的文件名
+// Configure storage location and filename
 const storage = multer.diskStorage({
-    // 存储位置
+    // Storage location
     destination: function (req, file, cb) {
         cb(null, fullPath)
     },
@@ -39,10 +39,10 @@ const storage = multer.diskStorage({
     }
 })
 
-// 创建文件对象
+// Create file object
 const fileUpload = multer({ storage })
 
-// 1 上传单张图片
+// 1. Upload single image
 router.post('/upload', fileUpload.single('image'), async (req, res) => {
     // console.log(req.file);
     try {
@@ -54,7 +54,7 @@ router.post('/upload', fileUpload.single('image'), async (req, res) => {
     res.send('upload~~')
 })
 
-// 2 上传多张
+// 2. Upload multiple images
 router.post('/uploadImage', fileUpload.array('image',3), async (req, res) => {
     // console.log(req.file);
     try {
@@ -70,7 +70,7 @@ router.post('/uploadImage', fileUpload.array('image',3), async (req, res) => {
 
 app.use(router)
 
-// 配置静态资源目录
+// Configure static resource directory
 
 app.listen('8080', () => {
     console.log('server is running');

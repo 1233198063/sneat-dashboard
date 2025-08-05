@@ -1,8 +1,8 @@
-/* 对数据库进行增删改查 */
+/* Database CRUD operations */
 
 const UserModel = require('../model/User')
 
-// 注册
+// Register
 exports.register =async (data)=>{
     // console.log(data);
     try {
@@ -12,7 +12,7 @@ exports.register =async (data)=>{
     }
 }
 
-// 登录
+// Login
 exports.login =async (email)=>{
     try {
         return await UserModel.findOne({email})

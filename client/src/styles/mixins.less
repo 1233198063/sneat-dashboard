@@ -1,4 +1,4 @@
-// 弹性布局混合器
+// Flexbox mixins
 .flex-center() {
   display: flex;
   align-items: center;
@@ -22,7 +22,7 @@
   flex-direction: column;
 }
 
-// 文本截断
+// Text truncation
 .text-ellipsis() {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -36,7 +36,7 @@
   overflow: hidden;
 }
 
-// 清除浮动
+// Clear floats
 .clearfix() {
   &::after {
     content: '';
@@ -45,7 +45,7 @@
   }
 }
 
-// 按钮样式混合器
+// Button style mixins
 .button-base() {
   display: inline-flex;
   align-items: center;
@@ -97,7 +97,7 @@
   }
 }
 
-// 卡片样式
+// Card styles
 .card-base() {
   background: @white;
   border-radius: @border-radius-lg;
@@ -105,7 +105,7 @@
   border: 1px solid @gray-200;
 }
 
-// 输入框样式
+// Input styles
 .input-base() {
   width: 100%;
   padding: @spacing-2 @spacing-3;
@@ -126,7 +126,7 @@
   }
 }
 
-// 响应式混合器
+// Responsive mixins
 .responsive(@breakpoint) when (@breakpoint = sm) {
   @media (min-width: @screen-sm) {
     @content();
