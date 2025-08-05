@@ -1,0 +1,111 @@
+@import './variables.less';
+@import './mixins.less';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: @font-family-base;
+  font-size: @font-size-base;
+  line-height: 1.5;
+  color: @gray-900;
+  background-color: @gray-50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: @gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  background: @gray-300;
+  border-radius: 3px;
+  
+  &:hover {
+    background: @gray-400;
+  }
+}
+
+// 选择文本样式
+::selection {
+  background-color: fade(@primary-color, 20%);
+}
+
+// 链接样式
+a {
+  color: @primary-color;
+  text-decoration: none;
+  transition: @transition-base;
+  
+  &:hover {
+    color: @primary-hover;
+  }
+}
+
+// 标题样式
+h1, h2, h3, h4, h5, h6 {
+  font-weight: @font-weight-semibold;
+  color: @gray-900;
+  line-height: 1.2;
+}
+
+h1 { font-size: @font-size-3xl; }
+h2 { font-size: @font-size-2xl; }
+h3 { font-size: @font-size-xl; }
+h4 { font-size: @font-size-lg; }
+h5 { font-size: @font-size-base; }
+h6 { font-size: @font-size-sm; }
+
+// 段落样式
+p {
+  margin-bottom: @spacing-4;
+  color: @gray-600;
+}
+
+// 列表样式
+ul, ol {
+  padding-left: @spacing-6;
+  margin-bottom: @spacing-4;
+}
+
+li {
+  margin-bottom: @spacing-1;
+}
+
+// 表格样式
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: @spacing-4;
+}
+
+th, td {
+  padding: @spacing-3;
+  text-align: left;
+  border-bottom: 1px solid @gray-200;
+}
+
+th {
+  font-weight: @font-weight-semibold;
+  color: @gray-900;
+  background-color: @gray-50;
+}

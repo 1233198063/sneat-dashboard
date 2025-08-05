@@ -1,0 +1,160 @@
+@import './variables.less';
+
+// 文本工具类
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+.text-xs { font-size: @font-size-xs; }
+.text-sm { font-size: @font-size-sm; }
+.text-base { font-size: @font-size-base; }
+.text-lg { font-size: @font-size-lg; }
+.text-xl { font-size: @font-size-xl; }
+.text-2xl { font-size: @font-size-2xl; }
+.text-3xl { font-size: @font-size-3xl; }
+
+.font-normal { font-weight: @font-weight-normal; }
+.font-medium { font-weight: @font-weight-medium; }
+.font-semibold { font-weight: @font-weight-semibold; }
+.font-bold { font-weight: @font-weight-bold; }
+
+.text-gray-400 { color: @gray-400; }
+.text-gray-500 { color: @gray-500; }
+.text-gray-600 { color: @gray-600; }
+.text-gray-700 { color: @gray-700; }
+.text-gray-900 { color: @gray-900; }
+.text-primary { color: @primary-color; }
+.text-success { color: @success-color; }
+.text-warning { color: @warning-color; }
+.text-error { color: @error-color; }
+
+// 间距工具类
+.m-0 { margin: 0; }
+.m-1 { margin: @spacing-1; }
+.m-2 { margin: @spacing-2; }
+.m-3 { margin: @spacing-3; }
+.m-4 { margin: @spacing-4; }
+.m-5 { margin: @spacing-5; }
+.m-6 { margin: @spacing-6; }
+.m-8 { margin: @spacing-8; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: @spacing-1; }
+.mt-2 { margin-top: @spacing-2; }
+.mt-3 { margin-top: @spacing-3; }
+.mt-4 { margin-top: @spacing-4; }
+.mt-6 { margin-top: @spacing-6; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: @spacing-1; }
+.mb-2 { margin-bottom: @spacing-2; }
+.mb-3 { margin-bottom: @spacing-3; }
+.mb-4 { margin-bottom: @spacing-4; }
+.mb-6 { margin-bottom: @spacing-6; }
+
+.ml-0 { margin-left: 0; }
+.ml-1 { margin-left: @spacing-1; }
+.ml-2 { margin-left: @spacing-2; }
+.ml-3 { margin-left: @spacing-3; }
+.ml-4 { margin-left: @spacing-4; }
+
+.mr-0 { margin-right: 0; }
+.mr-1 { margin-right: @spacing-1; }
+.mr-2 { margin-right: @spacing-2; }
+.mr-3 { margin-right: @spacing-3; }
+.mr-4 { margin-right: @spacing-4; }
+
+.p-0 { padding: 0; }
+.p-1 { padding: @spacing-1; }
+.p-2 { padding: @spacing-2; }
+.p-3 { padding: @spacing-3; }
+.p-4 { padding: @spacing-4; }
+.p-5 { padding: @spacing-5; }
+.p-6 { padding: @spacing-6; }
+
+.pt-0 { padding-top: 0; }
+.pt-1 { padding-top: @spacing-1; }
+.pt-2 { padding-top: @spacing-2; }
+.pt-4 { padding-top: @spacing-4; }
+
+.pb-0 { padding-bottom: 0; }
+.pb-1 { padding-bottom: @spacing-1; }
+.pb-2 { padding-bottom: @spacing-2; }
+.pb-4 { padding-bottom: @spacing-4; }
+
+.pl-0 { padding-left: 0; }
+.pl-1 { padding-left: @spacing-1; }
+.pl-2 { padding-left: @spacing-2; }
+.pl-4 { padding-left: @spacing-4; }
+
+.pr-0 { padding-right: 0; }
+.pr-1 { padding-right: @spacing-1; }
+.pr-2 { padding-right: @spacing-2; }
+.pr-4 { padding-right: @spacing-4; }
+
+// 显示工具类
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+.hidden { display: none; }
+
+// 弹性布局工具类
+.flex-1 { flex: 1 1 0%; }
+.flex-auto { flex: 1 1 auto; }
+.flex-none { flex: none; }
+
+.flex-row { flex-direction: row; }
+.flex-col { flex-direction: column; }
+
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.items-stretch { align-items: stretch; }
+
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+
+// 网格工具类
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.gap-1 { gap: @spacing-1; }
+.gap-2 { gap: @spacing-2; }
+.gap-3 { gap: @spacing-3; }
+.gap-4 { gap: @spacing-4; }
+.gap-6 { gap: @spacing-6; }
+
+// 宽度高度工具类
+.w-full { width: 100%; }
+.w-auto { width: auto; }
+.w-fit { width: fit-content; }
+
+.h-full { height: 100%; }
+.h-auto { height: auto; }
+.h-fit { height: fit-content; }
+
+// 圆角工具类
+.rounded-none { border-radius: 0; }
+.rounded-sm { border-radius: @border-radius-sm; }
+.rounded { border-radius: @border-radius; }
+.rounded-lg { border-radius: @border-radius-lg; }
+.rounded-xl { border-radius: @border-radius-xl; }
+.rounded-full { border-radius: 9999px; }
+
+// 阴影工具类
+.shadow-none { box-shadow: none; }
+.shadow-sm { box-shadow: @shadow-sm; }
+.shadow { box-shadow: @shadow-base; }
+.shadow-md { box-shadow: @shadow-md; }
+.shadow-lg { box-shadow: @shadow-lg; }

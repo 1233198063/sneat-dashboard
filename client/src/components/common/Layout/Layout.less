@@ -1,0 +1,63 @@
+@import '../../../styles/variables.less';
+
+.layout {
+  display: flex;
+  height: 100vh;
+  background: @gray-50;
+  
+  .layout-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; // 防止flex子元素溢出
+    
+    .layout-content {
+      flex: 1;
+      padding: 1.5rem;
+      overflow-y: auto;
+      background: @gray-50;
+      
+      // 自定义滚动条
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: @gray-300;
+        border-radius: 3px;
+        
+        &:hover {
+          background: @gray-400;
+        }
+      }
+    }
+  }
+
+  // 响应式布局
+  @media (max-width: 768px) {
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      height: 100vh;
+      z-index: 200;
+      transition: left 0.3s ease;
+      
+      &.open {
+        left: 0;
+      }
+    }
+
+    .layout-main {
+      margin-left: 0;
+      
+      .layout-content {
+        padding: 1rem;
+      }
+    }
+  }
+}
