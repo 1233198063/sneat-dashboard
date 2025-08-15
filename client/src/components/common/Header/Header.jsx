@@ -1,12 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Bell, Search, Menu, ChevronRight, Settings, Moon, ChevronDown, User, Mail, MessageCircle, DollarSign, HelpCircle, LogOut } from 'lucide-react';
+import { Bell, Search, Menu, ChevronRight, Settings, Moon, ChevronDown, User, Mail, MessageCircle, DollarSign, HelpCircle, LogOut, BarChart3, Users, ShoppingCart, Calendar, FileText, Palette, Layout, Type, Square, Circle, CreditCard, List, X } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import './Header.less';
 
 const Header = () => {
   const location = useLocation();
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const userMenuRef = useRef(null);
+  const searchRef = useRef(null);
 
   // 用户信息 - 您可以从context或props中获取
   const user = {
@@ -15,16 +17,59 @@ const Header = () => {
     avatar: '/images/avatars/avatar-girl.jpg', // 使用您上传的头像
   };
 
+  // Search panel data
+  const searchData = {
+    popularSearches: [
+      { icon: BarChart3, label: 'Analytics', url: '/analytics' },
+      { icon: Users, label: 'CRM', url: '/crm' },
+      { icon: ShoppingCart, label: 'eCommerce', url: '/ecommerce' },
+      { icon: Users, label: 'User List', url: '/users' }
+    ],
+    appsPages: [
+      { icon: Calendar, label: 'Calendar', url: '/calendar' },
+      { icon: FileText, label: 'Invoice List', url: '/invoices' },
+      { icon: DollarSign, label: 'Pricing', url: '/pricing' },
+      { icon: Settings, label: 'Account Settings', url: '/settings' }
+    ],
+    userInterface: [
+      { icon: Type, label: 'Typography', url: '/ui/typography' },
+      { icon: Square, label: 'Tabs', url: '/ui/tabs' },
+      { icon: Circle, label: 'Buttons', url: '/ui/buttons' },
+      { icon: Layout, label: 'Advanced Cards', url: '/ui/cards' }
+    ],
+    formsTables: [
+      { icon: List, label: 'Select', url: '/forms/select' },
+      { icon: Square, label: 'Autocomplete', url: '/forms/autocomplete' },
+      { icon: FileText, label: 'Table', url: '/tables' },
+      { icon: Calendar, label: 'Date Pickers', url: '/forms/datepickers' }
+    ]
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
         setIsUserMenuOpen(false);
       }
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setIsSearchOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsSearchOpen(false);
+      }
+      if ((event.ctrlKey || event.metaKey) && event.key === '/') {
+        event.preventDefault();
+        setIsSearchOpen(true);
+      }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
   
@@ -64,13 +109,95 @@ const Header = () => {
 
   return (
     <div className="header">
-      <div className="header-search">
+      <div className="header-search" ref={searchRef}>
         <Search className="search-icon" size={20} />
         <input 
           type="text" 
           placeholder="Search (Ctrl+/)"
           className="search-input"
+          onFocus={() => setIsSearchOpen(true)}
+          readOnly
         />
+        
+        {isSearchOpen && (
+          <>
+            <div className="search-backdrop" onClick={() => setIsSearchOpen(false)}></div>
+            <div className="search-dropdown">
+              <div className="search-modal-header">
+                <div className="search-input-container">
+                <Search className="search-modal-icon" size={20} />
+                <input 
+                  type="text" 
+                  placeholder="Search..."
+                  className="search-modal-input"
+                  autoFocus
+                />
+                <div className="search-hint">[esc]</div>
+                <button 
+                  className="search-close"
+                  onClick={() => setIsSearchOpen(false)}
+                >
+                  <X size={16} />
+                </button>
+                </div>
+              </div>
+            
+            <div className="search-content">
+              <div className="search-sections">
+                <div className="search-section">
+                  <h4 className="search-section-title">POPULAR SEARCHES</h4>
+                  <div className="search-items">
+                    {searchData.popularSearches.map((item, index) => (
+                      <a key={index} href={item.url} className="search-item">
+                        <item.icon size={16} />
+                        <span>{item.label}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="search-section">
+                  <h4 className="search-section-title">APPS & PAGES</h4>
+                  <div className="search-items">
+                    {searchData.appsPages.map((item, index) => (
+                      <a key={index} href={item.url} className="search-item">
+                        <item.icon size={16} />
+                        <span>{item.label}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              <div className="search-sections">
+                <div className="search-section">
+                  <h4 className="search-section-title">USER INTERFACE</h4>
+                  <div className="search-items">
+                    {searchData.userInterface.map((item, index) => (
+                      <a key={index} href={item.url} className="search-item">
+                        <item.icon size={16} />
+                        <span>{item.label}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="search-section">
+                  <h4 className="search-section-title">FORMS & TABLES</h4>
+                  <div className="search-items">
+                    {searchData.formsTables.map((item, index) => (
+                      <a key={index} href={item.url} className="search-item">
+                        <item.icon size={16} />
+                        <span>{item.label}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </>
+        )}
       </div>
       
       <div className="header-actions">

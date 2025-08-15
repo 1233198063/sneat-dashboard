@@ -19,6 +19,17 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-1px);
+        
+        .logo-text {
+          color: @primary-color;
+        }
+      }
       
       .logo-icon {
         width: 32px;
@@ -38,6 +49,7 @@
         font-weight: 700;
         color: @gray-900;
         letter-spacing: -0.025em;
+        transition: color 0.2s ease;
       }
     }
   }
@@ -177,14 +189,13 @@
             font-weight: 500;
             margin-left: 1rem;
             margin-right: 0;
-          }
-
-          .submenu-icon {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: @primary-color;
-            flex-shrink: 0;
+            
+            &::before {
+              background: @primary-color;
+              width: 6px;
+              height: 6px;
+              box-shadow: 0 0 8px @primary-color, 0 0 16px fade(@primary-color, 50%);
+            }
           }
 
           .submenu-text {

@@ -33,9 +33,9 @@ const Sidebar = () => {
           badge: 'New', 
           hasSubmenu: true,
           submenu: [
-            { path: '/dashboard/analytics', label: 'Analytics' },
-            { path: '/dashboard/crm', label: 'CRM' },
-            { path: '/dashboard/ecommerce', label: 'eCommerce' }
+            { path: '/', label: 'Analytics' },
+            { path: '/crm', label: 'CRM' },
+            { path: '/ecommerce', label: 'eCommerce' }
           ]
         }
       ]
@@ -102,10 +102,10 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <div className="logo">
+        <Link to="/" className="logo">
           <div className="logo-icon">S</div>
           <div className="logo-text">Sneat</div>
-        </div>
+        </Link>
       </div>
       
       <nav className="sidebar-nav">
@@ -145,9 +145,8 @@ const Sidebar = () => {
                       <Link
                         key={subItem.path}
                         to={subItem.path}
-                        className={`submenu-item ${location.pathname === subItem.path ? 'active' : ''}`}
+                        className={`submenu-item ${location.pathname === subItem.path || (location.pathname === '/' && subItem.path === '/') ? 'active' : ''}`}
                       >
-                        {subItem.hasIcon && <div className="submenu-icon"></div>}
                         <span className="submenu-text">{subItem.label}</span>
                       </Link>
                     ))}

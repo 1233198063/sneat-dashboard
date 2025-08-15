@@ -6,6 +6,7 @@ import CRM from './pages/CRM/CRM';
 import Analytics from './pages/Analytics/Analytics';
 import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
+import BasicCards from './pages/Cards/BasicCards';
 import './App.less';
 
 function App() {
@@ -14,12 +15,13 @@ function App() {
       <div className="App">
         <Layout>
           <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<Analytics />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/crm" element={<CRM />} />
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/cards/basic" element={<BasicCards />} />
           </Routes>
         </Layout>
       </div>
