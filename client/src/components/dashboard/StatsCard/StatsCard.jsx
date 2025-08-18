@@ -1,5 +1,4 @@
 import React from 'react';
-import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import Card from '../../ui/Card/Card';
 import './StatsCard.less';
 
@@ -8,18 +7,75 @@ const StatsCard = ({
   value, 
   change, 
   changeType = 'neutral',
-  icon: Icon,
+  icon,
   iconType = 'primary',
+  subtitle,
+  chartType,
+  chartColor,
   loading = false 
 }) => {
-  const getChangeIcon = () => {
-    switch (changeType) {
-      case 'positive':
-        return <TrendingUp size={14} />;
-      case 'negative':
-        return <TrendingDown size={14} />;
+  
+  const renderMiniChart = () => {
+    switch (chartType) {
+      case 'mini-chart':
+        return (
+          <div className="mini-chart">
+            <div className="chart-icon" style={{color: chartColor}}>📊</div>
+          </div>
+        );
+      case 'trend-up':
+        return (
+          <div className="mini-chart trend-chart">
+            <svg width="40" height="20" viewBox="0 0 40 20">
+              <path d="M2 15 L10 10 L18 5 L26 8 L34 3 L38 6" 
+                    stroke={chartColor} 
+                    strokeWidth="2" 
+                    fill="none" 
+                    strokeLinecap="round"/>
+              <circle cx="38" cy="6" r="2" fill={chartColor}/>
+            </svg>
+          </div>
+        );
+      case 'paypal':
+        return (
+          <div className="mini-chart paypal-chart">
+            <div className="paypal-icon" style={{color: chartColor}}>💳</div>
+          </div>
+        );
+      case 'calendar':
+        return (
+          <div className="mini-chart calendar-chart">
+            <div className="calendar-grid">
+              <div className="calendar-row">
+                <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+              </div>
+              <div className="calendar-days">
+                <div className="day"></div>
+                <div className="day"></div>
+                <div className="day active" style={{backgroundColor: chartColor}}></div>
+                <div className="day"></div>
+                <div className="day"></div>
+                <div className="day"></div>
+                <div className="day"></div>
+              </div>
+            </div>
+          </div>
+        );
+      case 'line-chart':
+        return (
+          <div className="mini-chart line-chart">
+            <svg width="60" height="30" viewBox="0 0 60 30">
+              <path d="M5 20 Q15 10 25 15 T45 8 T55 12" 
+                    stroke={chartColor} 
+                    strokeWidth="2" 
+                    fill="none" 
+                    strokeLinecap="round"/>
+              <circle cx="55" cy="12" r="2" fill={chartColor}/>
+            </svg>
+          </div>
+        );
       default:
-        return <Minus size={14} />;
+        return null;
     }
   };
 
@@ -39,19 +95,30 @@ const StatsCard = ({
   return (
     <Card className="stats-card" bordered hoverable loading={loading}>
       <div className="stats-content">
-        <div className="stats-info">
-          <div className="stats-title">{title}</div>
-          <div className="stats-value">{formatValue(value)}</div>
-          {change && (
-            <div className={`stats-change ${changeType}`}>
-              {getChangeIcon()}
-              <span>{change}</span>
+        <div className="stats-main">
+          <div className="stats-info">
+            <div className="stats-title">{title}</div>
+            <div className="stats-value">{formatValue(value)}</div>
+            {subtitle && <div className="stats-subtitle">{subtitle}</div>}
+            {change && (
+              <div className={`stats-change ${changeType}`}>
+                <span>{change}</span>
+              </div>
+            )}
+          </div>
+          {icon && (
+            <div className={`stats-icon ${iconType}`}>
+              {typeof icon === 'string' ? (
+                <span className="emoji-icon">{icon}</span>
+              ) : (
+                React.createElement(icon, { size: 24 })
+              )}
             </div>
           )}
         </div>
-        {Icon && (
-          <div className={`stats-icon ${iconType}`}>
-            <Icon size={24} />
+        {chartType && (
+          <div className="stats-chart-area">
+            {renderMiniChart()}
           </div>
         )}
       </div>

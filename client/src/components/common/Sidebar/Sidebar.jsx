@@ -12,7 +12,7 @@ import './Sidebar.less';
 const Sidebar = () => {
   const location = useLocation();
   const [expandedMenus, setExpandedMenus] = useState({
-    '/dashboard': true // 默认展开 Dashboards
+    '/dashboard': true // Default expand Dashboards
   });
 
   const toggleSubmenu = (path) => {

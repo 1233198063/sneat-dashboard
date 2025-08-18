@@ -16,7 +16,7 @@ import './CRM.less';
 const CRM = () => {
   const [timeRange, setTimeRange] = useState('7d');
 
-  // CRM统计数据
+  // CRM statistics data
   const crmStats = [
     { title: 'Total Customers', value: 21459, change: '+29%', changeType: 'positive', icon: Users, iconType: 'primary' },
     { title: 'Paid Users', value: 4567, change: '+18%', changeType: 'positive', icon: UserCheck, iconType: 'success' },
@@ -24,7 +24,7 @@ const CRM = () => {
     { title: 'Pending Users', value: 237, change: '-12%', changeType: 'negative', icon: Clock, iconType: 'error' }
   ];
 
-  // 销售漏斗数据
+  // Sales funnel data
   const salesFunnelData = [
     { name: 'Leads', value: 1000, fill: '#696CFF' },
     { name: 'Qualified', value: 750, fill: '#71DD37' },
@@ -33,7 +33,7 @@ const CRM = () => {
     { name: 'Closed Won', value: 150, fill: '#4BC0C0' }
   ];
 
-  // 月度收入数据
+  // Monthly revenue data
   const revenueData = [
     { month: 'Jan', revenue: 32000, customers: 1200 },
     { month: 'Feb', revenue: 42000, customers: 1890 },
@@ -43,14 +43,14 @@ const CRM = () => {
     { month: 'Jun', revenue: 67000, customers: 2456 }
   ];
 
-  // 客户分布数据
+  // Customer distribution data
   const customerDistribution = [
     { name: 'New', value: 35, count: 7845, color: '#696CFF' },
     { name: 'Returning', value: 45, count: 10123, color: '#71DD37' },
     { name: 'Referrals', value: 20, count: 4321, color: '#FF9F40' }
   ];
 
-  // 最新客户数据
+  // Recent customer data
   const recentCustomers = [
     {
       id: 1,
@@ -98,7 +98,7 @@ const CRM = () => {
     }
   ];
 
-  // 销售活动时间线
+  // Sales activities timeline
   const salesActivities = [
     {
       id: 1,

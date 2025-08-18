@@ -1,235 +1,431 @@
-import React, { useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, AreaChart, Area } from 'recharts';
-import { Users, Eye, TrendingUp, ShoppingCart, Clock, DollarSign, Activity, MoreHorizontal, Filter } from 'lucide-react';
+import React from 'react';
+import { MoreHorizontal } from 'lucide-react';
 import StatsCard from '../../components/dashboard/StatsCard/StatsCard';
 import Card from '../../components/ui/Card/Card';
+import TotalRevenueChart from '../../components/charts/TotalRevenueChart';
+import ProgressDoughnutChart from '../../components/charts/ProgressDoughnutChart';
 import './Dashboard.less';
 
 const Dashboard = () => {
-  const [timeRange, setTimeRange] = useState('7d');
 
   // Stats data for cards
   const statsData = [
-    { title: 'Total Revenue', value: 42562, change: '+42%', changeType: 'positive', icon: DollarSign, iconType: 'primary' },
-    { title: 'Sessions', value: 97412, change: '+18%', changeType: 'positive', icon: Users, iconType: 'success' },
-    { title: 'Orders', value: 13648, change: '+38%', changeType: 'positive', icon: ShoppingCart, iconType: 'warning' },
-    { title: 'Customers', value: 745, change: '+8%', changeType: 'positive', icon: TrendingUp, iconType: 'error' }
-  ];
-
-  const chartData = [
-    { name: 'Jan', revenue: 12000, orders: 240 },
-    { name: 'Feb', revenue: 15000, orders: 300 },
-    { name: 'Mar', revenue: 18000, orders: 360 },
-    { name: 'Apr', revenue: 16500, orders: 330 },
-    { name: 'May', revenue: 22000, orders: 440 },
-    { name: 'Jun', revenue: 25000, orders: 500 }
-  ];
-
-  const salesData = [
-    { name: 'Desktop', value: 58.6, sales: 45820 },
-    { name: 'Mobile', value: 34.9, sales: 27315 },
-    { name: 'Tablet', value: 6.5, sales: 5095 }
-  ];
-
-  const recentTransactions = [
-    { id: '#5089', customer: 'John Doe', product: 'Premium Plan', amount: '$89.00', status: 'Completed' },
-    { id: '#5088', customer: 'Jane Smith', product: 'Basic Plan', amount: '$29.00', status: 'Pending' },
-    { id: '#5087', customer: 'Mike Johnson', product: 'Pro Plan', amount: '$59.00', status: 'Completed' },
-    { id: '#5086', customer: 'Sarah Wilson', product: 'Premium Plan', amount: '$89.00', status: 'Failed' }
-  ];
-
-  const topProducts = [
-    { name: 'iPhone 14 Pro', sales: 1247, revenue: '$124,700' },
-    { name: 'MacBook Air M2', sales: 856, revenue: '$85,600' },
-    { name: 'iPad Pro', sales: 645, revenue: '$64,500' },
-    { name: 'AirPods Pro', sales: 432, revenue: '$43,200' }
-  ];
-
-  const COLORS = ['#696CFF', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6'];
-
-  const getStatusColor = (status) => {
-    switch (status) {
-      case 'Completed': return '#10b981';
-      case 'Pending': return '#f59e0b';
-      case 'Failed': return '#ef4444';
-      default: return '#6b7280';
+    {
+      title: 'Order',
+      value: '276k',
+      icon: '📊',
+      iconType: 'primary',
+      chartType: 'mini-chart',
+      chartColor: '#696CFF'
+    },
+    {
+      title: 'Sales',
+      value: '$4,679',
+      change: '↗ 28.14%',
+      changeType: 'positive',
+      icon: '💰',
+      iconType: 'success',
+      chartType: 'trend-up',
+      chartColor: '#10B981'
+    },
+    {
+      title: 'Revenue',
+      value: '425k',
+      icon: '📈',
+      iconType: 'warning',
+      chartType: 'paypal',
+      chartColor: '#F59E0B'
+    },
+    {
+      title: 'Payments',
+      value: '$2,468',
+      change: '↘ 14.82%',
+      changeType: 'negative',
+      icon: '💳',
+      iconType: 'error',
+      chartType: 'calendar',
+      chartColor: '#EF4444'
+    },
+    {
+      title: 'Profit Report',
+      value: '$84,686k',
+      change: '↗ 68.2%',
+      changeType: 'positive',
+      subtitle: 'YEAR 2025',
+      icon: '📊',
+      iconType: 'warning',
+      chartType: 'line-chart',
+      chartColor: '#F59E0B'
     }
-  };
+  ];
+
 
 
   return (
     <div className="dashboard">
-      {/* Page Header */}
-      <div className="page-header">
-        <div className="page-header-content">
-          <div>
-            <h1 className="page-title">Dashboard</h1>
-            <p className="page-subtitle">Welcome back, John! Here's what's happening with your store today.</p>
+      <div className="dashboard-grid">
+        {/* Row 1, Col 1: Congratulations Card */}
+        <Card className="welcome-banner">
+          <div className="welcome-content">
+            <div className="welcome-text">
+              <h1 className="welcome-title">Congratulations John! 🎉</h1>
+              <p className="welcome-subtitle">
+                You have done 72% more sales today.<br />
+                Check your new badge in your profile.
+              </p>
+              <button className="view-badges-btn">VIEW BADGES</button>
+            </div>
+            <div className="welcome-illustration">
+              <img
+                src="/images/illustration-john-light.png"
+                alt="John illustration"
+                className="character-image"
+              />
+            </div>
           </div>
-          <div className="page-actions">
-            <select 
-              value={timeRange} 
-              onChange={(e) => setTimeRange(e.target.value)}
-              className="time-select"
-            >
-              <option value="24h">Last 24 hours</option>
-              <option value="7d">Last 7 days</option>
-              <option value="30d">Last 30 days</option>
-              <option value="90d">Last 90 days</option>
-            </select>
+        </Card>
+
+        {/* Row 1, Col 2: Order Card */}
+        <StatsCard {...statsData[0]} />
+
+        {/* Row 1, Col 3: Sales Card */}
+        <StatsCard {...statsData[1]} />
+
+
+        {/* Row 2, Col 1: Total Revenue Card */}
+        <Card className="revenue-chart-card">
+          <div className="revenue-main-container">
+            <div className="left-section">
+              <div className="left-header">
+                <h3 className="card-title">Total Revenue</h3>
+                <p className="card-subtitle">2024 vs 2023</p>
+              </div>
+              
+              <div className="chart-legend">
+                <div className="legend-item">
+                  <span className="legend-dot" style={{ backgroundColor: '#696CFF' }}></span>
+                  <span>2024</span>
+                </div>
+                <div className="legend-item">
+                  <span className="legend-dot" style={{ backgroundColor: '#03DAC6' }}></span>
+                  <span>2023</span>
+                </div>
+              </div>
+              
+              <div className="chart-area">
+                <TotalRevenueChart />
+              </div>
+            </div>
+            
+            <div className="vertical-divider"></div>
+            
+            <div className="right-section">
+              <div className="right-top">
+                <select className="year-select-purple">
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                </select>
+              </div>
+              
+              <div className="right-middle">
+                <div className="progress-container">
+                  <div className="progress-chart">
+                    <ProgressDoughnutChart percentage={78} />
+                  </div>
+                  <div className="company-growth">62% Company Growth</div>
+                </div>
+              </div>
+              
+              <div className="right-bottom">
+                <div className="revenue-stats">
+                  <div className="revenue-stat">
+                    <div className="stat-icon stat-2025">$</div>
+                    <div className="stat-info">
+                      <div className="stat-year">2025</div>
+                      <div className="stat-value">$32.5k</div>
+                    </div>
+                  </div>
+                  <div className="revenue-stat">
+                    <div className="stat-icon stat-2024">📊</div>
+                    <div className="stat-info">
+                      <div className="stat-year">2024</div>
+                      <div className="stat-value">$41.2k</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </Card>
+
+        {/* Row 2, Col 2: Payments Card */}
+        <StatsCard {...statsData[3]} />
+
+        {/* Row 2, Col 3: Revenue Card */}
+        <Card className="revenue-card">
+          <div className="revenue-header">
+            <h3 className="revenue-title">Revenue</h3>
+          </div>
+          <div className="revenue-content">
+            <div className="revenue-value">425k</div>
+            <div className="revenue-chart">
+              <div className="chart-bars">
+                <div className="bar" style={{ height: '30%', backgroundColor: '#E5E7EB' }}></div>
+                <div className="bar" style={{ height: '50%', backgroundColor: '#E5E7EB' }}></div>
+                <div className="bar" style={{ height: '40%', backgroundColor: '#E5E7EB' }}></div>
+                <div className="bar" style={{ height: '30%', backgroundColor: '#E5E7EB' }}></div>
+                <div className="bar" style={{ height: '80%', backgroundColor: '#6366F1' }}></div>
+                <div className="bar" style={{ height: '45%', backgroundColor: '#E5E7EB' }}></div>
+                <div className="bar" style={{ height: '60%', backgroundColor: '#E5E7EB' }}></div>
+              </div>
+              <div className="chart-labels">
+                <span>M</span>
+                <span>T</span>
+                <span>W</span>
+                <span>T</span>
+                <span>F</span>
+                <span>S</span>
+                <span>S</span>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        {/* Row 3, Col 2: Profit Report Card */}
+        <div className="profit-report-card">
+          <StatsCard {...statsData[4]} />
+        </div>
+
+        {/* Additional cards for Revenue (hide for now) */}
+        <div className="additional-cards">
+          <StatsCard {...statsData[2]} />
         </div>
       </div>
 
-      {/* Stats Cards */}
-      <div className="stats-grid">
-        {statsData.map((stat, index) => (
-          <StatsCard key={index} {...stat} />
-        ))}
-      </div>
-
-      {/* Charts Section */}
-      <div className="charts-section">
-        {/* Revenue Chart */}
-        <Card 
-          title="Revenue Analytics" 
-          subtitle="Commercial networks & enterprises"
-          action={
-            <button className="card-menu-btn">
-              <MoreHorizontal size={20} />
-            </button>
-          }
-          className="chart-card"
-        >
-          <ResponsiveContainer width="100%" height={300}>
-            <AreaChart data={chartData}>
-              <defs>
-                <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#696CFF" stopOpacity={0.1}/>
-                  <stop offset="95%" stopColor="#696CFF" stopOpacity={0}/>
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis dataKey="name" axisLine={false} tickLine={false} />
-              <YAxis axisLine={false} tickLine={false} />
-              <Tooltip 
-                contentStyle={{
-                  backgroundColor: '#fff',
-                  border: '1px solid #e0e0e0',
-                  borderRadius: '8px',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
-                }}
-              />
-              <Area 
-                type="monotone" 
-                dataKey="revenue" 
-                stroke="#696CFF" 
-                fillOpacity={1} 
-                fill="url(#colorRevenue)" 
-                strokeWidth={3}
-              />
-            </AreaChart>
-          </ResponsiveContainer>
-        </Card>
-
-        {/* Sales by Device */}
-        <Card 
-          title="Sales by Device"
-          subtitle="Device-wise sales distribution"
-          action={
-            <button className="card-menu-btn">
-              <MoreHorizontal size={20} />
-            </button>
-          }
-          className="chart-card"
-        >
-          <ResponsiveContainer width="100%" height={240}>
-            <PieChart>
-              <Pie
-                data={salesData}
-                cx="50%"
-                cy="50%"
-                innerRadius={50}
-                outerRadius={100}
-                paddingAngle={2}
-                dataKey="value"
-              >
-                {salesData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip formatter={(value) => `${value}%`} />
-            </PieChart>
-          </ResponsiveContainer>
-          <div className="device-legend">
-            {salesData.map((item, index) => (
-              <div key={index} className="legend-item">
-                <div className="legend-dot" style={{ backgroundColor: COLORS[index] }}></div>
-                <div className="legend-info">
-                  <span className="legend-label">{item.name}</span>
-                  <span className="legend-value">{item.value}%</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Card>
-      </div>
 
       {/* Bottom Section */}
       <div className="bottom-section">
-        {/* Recent Transactions */}
-        <Card 
-          title="Recent Transactions"
-          subtitle="Last transactions performed"
+        {/* Order Statistics */}
+        <Card
+          title="Order Statistics"
+          subtitle="42.82k Total Sales"
           action={
-            <button className="view-all-btn">
-              View All
+            <button className="card-menu-btn">
+              <MoreHorizontal size={20} />
             </button>
           }
-          className="table-card"
+          className="order-stats-card"
         >
-          <div className="transactions-list">
-            {recentTransactions.map((transaction, index) => (
-              <div key={index} className="transaction-item">
-                <div className="transaction-info">
-                  <div className="transaction-id">{transaction.id}</div>
-                  <div className="transaction-customer">{transaction.customer}</div>
-                  <div className="transaction-product">{transaction.product}</div>
-                </div>
-                <div className="transaction-amount">{transaction.amount}</div>
-                <div 
-                  className="transaction-status"
-                  style={{ color: getStatusColor(transaction.status) }}
-                >
-                  {transaction.status}
+          <div className="order-content">
+            <div className="order-main-stats">
+              <div className="order-number">8,258</div>
+              <div className="order-label">Total Orders</div>
+            </div>
+
+            <div className="order-chart">
+              <div className="circular-chart">
+                <div className="chart-circle">
+                  <div className="chart-text">
+                    <span className="chart-percentage">38%</span>
+                    <span className="chart-label">Weekly</span>
+                  </div>
                 </div>
               </div>
-            ))}
+            </div>
+
+            <div className="order-categories">
+              <div className="category-item">
+                <div className="category-icon">📱</div>
+                <div className="category-info">
+                  <div className="category-name">Electronic</div>
+                  <div className="category-desc">Mobile, Earbuds, TV</div>
+                </div>
+                <div className="category-value">82.5k</div>
+              </div>
+
+              <div className="category-item">
+                <div className="category-icon">👕</div>
+                <div className="category-info">
+                  <div className="category-name">Fashion</div>
+                  <div className="category-desc">Tshirt, Jeans, Shoes</div>
+                </div>
+                <div className="category-value">23.8k</div>
+              </div>
+
+              <div className="category-item">
+                <div className="category-icon">🏠</div>
+                <div className="category-info">
+                  <div className="category-name">Decor</div>
+                  <div className="category-desc">Fine Art, Dining</div>
+                </div>
+                <div className="category-value">849</div>
+              </div>
+
+              <div className="category-item">
+                <div className="category-icon">⚽</div>
+                <div className="category-info">
+                  <div className="category-name">Sports</div>
+                  <div className="category-desc">Football, Cricket Kit</div>
+                </div>
+                <div className="category-value">99</div>
+              </div>
+            </div>
           </div>
         </Card>
 
-        {/* Top Products */}
-        <Card 
-          title="Top Selling Products"
-          subtitle="Best performing products"
+        {/* Income / Expenses */}
+        <Card className="income-expenses-card sneat">
+          {/* Tabs */}
+          <div className="income-tabs">
+            <button className="tab active">INCOME</button>
+            <button className="tab">EXPENSES</button>
+            <button className="tab">PROFIT</button>
+          </div>
+          <div className="tabs-divider" />
+
+          {/* Content */}
+          <div className="income-content">
+            {/* Header */}
+            <div className="income-header">
+              <div className="income-icon">
+                {/* wallet icon */}
+                <div className="wallet" />
+              </div>
+
+              <div className="income-info">
+                <div className="income-title">Total Income</div>
+                <div className="row">
+                  <div className="income-amount">$459.1k</div>
+                  <div className="income-change">↑ 42.9%</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Chart */}
+            <div className="income-chart-area">
+              <div className="area-chart">
+                <svg className="chart-svg" viewBox="0 0 300 160" preserveAspectRatio="none">
+                  {/* backgroud grids */}
+                  <g className="grid">
+                    <line x1="0" y1="36" x2="300" y2="36" />
+                    <line x1="0" y1="72" x2="300" y2="72" />
+                    <line x1="0" y1="108" x2="300" y2="108" />
+                    <line x1="0" y1="144" x2="300" y2="144" />
+                  </g>
+
+                  {/* color */}
+                  <defs>
+                    <linearGradient id="incomeGradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#6366F1" stopOpacity="0.28" />
+                      <stop offset="100%" stopColor="#6366F1" stopOpacity="0.08" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* line */}
+                  <path
+                    d="M0,120 C35,130 55,120 75,95 C95,70 120,80 135,105 C155,140 190,45 215,80 C235,105 260,115 285,100 C294,96 298,92 300,90 L300,160 L0,160 Z"
+                    fill="url(#incomeGradient)"
+                  />
+                  <path
+                    d="M0,120 C35,130 55,120 75,95 C95,70 120,80 135,105 C155,140 190,45 215,80 C235,105 260,115 285,100 C294,96 298,92 300,90"
+                    stroke="#6366F1" strokeWidth="3" fill="none"
+                  />
+
+                  {/* spot */}
+                  <circle cx="300" cy="90" r="8" fill="#6366F1" />
+                  <circle cx="300" cy="90" r="5.5" fill="#fff" />
+                </svg>
+              </div>
+
+              {/* month */}
+              <div className="chart-labels">
+                <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span>
+                <span>May</span><span>Jun</span><span>Jul</span>
+              </div>
+
+              {/* week circle and text */}
+              <div className="income-week-info">
+                <div className="week-circle">
+                  <svg viewBox="0 0 48 48">
+                    <circle cx="24" cy="24" r="21" className="ring-bg" />
+                    <circle cx="24" cy="24" r="21" className="ring-fg" />
+                  </svg>
+                  <span className="week-val">6.5k</span>
+                </div>
+
+                <div className="week-text">
+                  <div className="week-title">Income this week</div>
+                  <div className="week-subtitle">$39k less than last week</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        {/* Transactions */}
+        <Card
+          title="Transactions"
           action={
-            <button className="view-all-btn">
-              View All
+            <button className="card-menu-btn">
+              <MoreHorizontal size={20} />
             </button>
           }
-          className="table-card"
+          className="transactions-card"
         >
-          <div className="products-list">
-            {topProducts.map((product, index) => (
-              <div key={index} className="product-item">
-                <div className="product-rank">#{index + 1}</div>
-                <div className="product-info">
-                  <div className="product-name">{product.name}</div>
-                  <div className="product-sales">{product.sales} sales</div>
-                </div>
-                <div className="product-revenue">{product.revenue}</div>
+          <div className="transaction-list">
+            <div className="transaction-item">
+              <div className="transaction-icon paypal">💳</div>
+              <div className="transaction-details">
+                <div className="transaction-name">Paypal</div>
+                <div className="transaction-desc">Send money</div>
               </div>
-            ))}
+              <div className="transaction-amount positive">+82.6 USD</div>
+            </div>
+
+            <div className="transaction-item">
+              <div className="transaction-icon wallet">💳</div>
+              <div className="transaction-details">
+                <div className="transaction-name">Wallet</div>
+                <div className="transaction-desc">Mac'D</div>
+              </div>
+              <div className="transaction-amount positive">+270.69 USD</div>
+            </div>
+
+            <div className="transaction-item">
+              <div className="transaction-icon transfer">💰</div>
+              <div className="transaction-details">
+                <div className="transaction-name">Transfer</div>
+                <div className="transaction-desc">Refund</div>
+              </div>
+              <div className="transaction-amount positive">+637.91 USD</div>
+            </div>
+
+            <div className="transaction-item">
+              <div className="transaction-icon credit">💳</div>
+              <div className="transaction-details">
+                <div className="transaction-name">Credit Card</div>
+                <div className="transaction-desc">Ordered Food</div>
+              </div>
+              <div className="transaction-amount negative">-838.71 USD</div>
+            </div>
+
+            <div className="transaction-item">
+              <div className="transaction-icon wallet">💳</div>
+              <div className="transaction-details">
+                <div className="transaction-name">Wallet</div>
+                <div className="transaction-desc">Starbucks</div>
+              </div>
+              <div className="transaction-amount positive">+203.33 USD</div>
+            </div>
+
+            <div className="transaction-item">
+              <div className="transaction-icon mastercard">💳</div>
+              <div className="transaction-details">
+                <div className="transaction-name">Mastercard</div>
+                <div className="transaction-desc">Ordered Food</div>
+              </div>
+              <div className="transaction-amount negative">-92.45 USD</div>
+            </div>
           </div>
         </Card>
       </div>
