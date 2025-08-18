@@ -12,6 +12,7 @@ const StatsCard = ({
   subtitle,
   chartType,
   chartColor,
+  chartComponent,
   loading = false 
 }) => {
   
@@ -74,6 +75,18 @@ const StatsCard = ({
             </svg>
           </div>
         );
+      case 'order-chart':
+        return (
+          <div className="chart-component-container">
+            {chartComponent}
+          </div>
+        );
+      case 'profit-chart':
+        return (
+          <div className="chart-component-container">
+            {chartComponent}
+          </div>
+        );
       default:
         return null;
     }
@@ -93,33 +106,55 @@ const StatsCard = ({
   };
 
   return (
-    <Card className="stats-card" bordered hoverable loading={loading}>
+    <Card className={`stats-card ${chartType === 'profit-chart' ? 'profit-report-card' : ''}`} bordered hoverable loading={loading}>
       <div className="stats-content">
-        <div className="stats-main">
-          <div className="stats-info">
-            <div className="stats-title">{title}</div>
-            <div className="stats-value">{formatValue(value)}</div>
-            {subtitle && <div className="stats-subtitle">{subtitle}</div>}
-            {change && (
-              <div className={`stats-change ${changeType}`}>
-                <span>{change}</span>
+        {chartType === 'profit-chart' ? (
+          <div className="profit-layout">
+            <div className="profit-info">
+              <div className="stats-title">{title}</div>
+              {subtitle && <div className="stats-subtitle">{subtitle}</div>}
+              {change && (
+                <div className={`stats-change ${changeType}`}>
+                  <span>{change}</span>
+                </div>
+              )}
+              <div className="stats-value">{formatValue(value)}</div>
+            </div>
+            <div className="profit-chart">
+              {renderMiniChart()}
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className="stats-main">
+              <div className="stats-info">
+                {icon && (
+                  <div className={`stats-icon ${iconType}`}>
+                    {typeof icon === 'string' && icon.includes('.') ? (
+                      <img src={`/images/${icon}`} alt="icon" className="icon-image" />
+                    ) : typeof icon === 'string' ? (
+                      <span className="emoji-icon">{icon}</span>
+                    ) : (
+                      React.createElement(icon, { size: 24 })
+                    )}
+                  </div>
+                )}
+                <div className="stats-title">{title}</div>
+                <div className="stats-value">{formatValue(value)}</div>
+                {subtitle && <div className="stats-subtitle">{subtitle}</div>}
+                {change && (
+                  <div className={`stats-change ${changeType}`}>
+                    <span>{change}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+            {chartType && (
+              <div className="stats-chart-area">
+                {renderMiniChart()}
               </div>
             )}
-          </div>
-          {icon && (
-            <div className={`stats-icon ${iconType}`}>
-              {typeof icon === 'string' ? (
-                <span className="emoji-icon">{icon}</span>
-              ) : (
-                React.createElement(icon, { size: 24 })
-              )}
-            </div>
-          )}
-        </div>
-        {chartType && (
-          <div className="stats-chart-area">
-            {renderMiniChart()}
-          </div>
+          </>
         )}
       </div>
     </Card>

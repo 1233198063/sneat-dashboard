@@ -115,14 +115,14 @@ const TotalRevenueChart = () => {
       padding: {
         top: 10,
         right: 10,
-        bottom: 40,
+        bottom: 20,
         left: 10
       }
     }
   };
 
   return (
-    <div style={{ width: '100%', height: '280px' }}>
+    <div style={{ width: '100%', height: '100%' }}>
       <Bar data={data} options={options} />
     </div>
   );

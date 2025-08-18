@@ -4,34 +4,34 @@ import StatsCard from '../../components/dashboard/StatsCard/StatsCard';
 import Card from '../../components/ui/Card/Card';
 import TotalRevenueChart from '../../components/charts/TotalRevenueChart';
 import ProgressDoughnutChart from '../../components/charts/ProgressDoughnutChart';
+import OrderChart from '../../components/charts/OrderChart';
+import ProfitChart from '../../components/charts/ProfitChart';
+import IncomeChart from '../../components/charts/IncomeChart';
+import OrderStatsChart from '../../components/charts/OrderStatsChart';
 import './Dashboard.less';
 
 const Dashboard = () => {
 
-  // Stats data for cards
+  // Statistics data for dashboard cards
   const statsData = [
     {
       title: 'Order',
       value: '276k',
-      icon: '📊',
-      iconType: 'primary',
-      chartType: 'mini-chart',
-      chartColor: '#696CFF'
+      chartType: 'order-chart',
+      chartComponent: <OrderChart />
     },
     {
       title: 'Sales',
       value: '$4,679',
-      change: '↗ 28.14%',
+      change: '28.14%',
       changeType: 'positive',
-      icon: '💰',
-      iconType: 'success',
-      chartType: 'trend-up',
-      chartColor: '#10B981'
+      icon: 'stats-vertical-wallet.png',
+      iconType: 'transparent'
     },
     {
       title: 'Revenue',
       value: '425k',
-      icon: '📈',
+      icon: 'trending-up',
       iconType: 'warning',
       chartType: 'paypal',
       chartColor: '#F59E0B'
@@ -39,23 +39,19 @@ const Dashboard = () => {
     {
       title: 'Payments',
       value: '$2,468',
-      change: '↘ 14.82%',
+      change: '14.82%',
       changeType: 'negative',
-      icon: '💳',
-      iconType: 'error',
-      chartType: 'calendar',
-      chartColor: '#EF4444'
+      icon: 'stats-vertical-paypal.png',
+      iconType: 'transparent'
     },
     {
       title: 'Profit Report',
       value: '$84,686k',
-      change: '↗ 68.2%',
+      change: '68.2%',
       changeType: 'positive',
       subtitle: 'YEAR 2025',
-      icon: '📊',
-      iconType: 'warning',
-      chartType: 'line-chart',
-      chartColor: '#F59E0B'
+      chartType: 'profit-chart',
+      chartComponent: <ProfitChart />
     }
   ];
 
@@ -217,25 +213,22 @@ const Dashboard = () => {
           className="order-stats-card"
         >
           <div className="order-content">
-            <div className="order-main-stats">
-              <div className="order-number">8,258</div>
-              <div className="order-label">Total Orders</div>
-            </div>
+            <div className="order-top-section">
+              <div className="order-main-stats">
+                <div className="order-number">8,258</div>
+                <div className="order-label">Total Orders</div>
+              </div>
 
-            <div className="order-chart">
-              <div className="circular-chart">
-                <div className="chart-circle">
-                  <div className="chart-text">
-                    <span className="chart-percentage">38%</span>
-                    <span className="chart-label">Weekly</span>
-                  </div>
+              <div className="order-chart">
+                <div className="chart-container">
+                  <OrderStatsChart />
                 </div>
               </div>
             </div>
 
             <div className="order-categories">
               <div className="category-item">
-                <div className="category-icon">📱</div>
+                <div className="category-icon electronic">📱</div>
                 <div className="category-info">
                   <div className="category-name">Electronic</div>
                   <div className="category-desc">Mobile, Earbuds, TV</div>
@@ -244,7 +237,7 @@ const Dashboard = () => {
               </div>
 
               <div className="category-item">
-                <div className="category-icon">👕</div>
+                <div className="category-icon fashion">👕</div>
                 <div className="category-info">
                   <div className="category-name">Fashion</div>
                   <div className="category-desc">Tshirt, Jeans, Shoes</div>
@@ -253,7 +246,7 @@ const Dashboard = () => {
               </div>
 
               <div className="category-item">
-                <div className="category-icon">🏠</div>
+                <div className="category-icon decor">🏠</div>
                 <div className="category-info">
                   <div className="category-name">Decor</div>
                   <div className="category-desc">Fine Art, Dining</div>
@@ -262,7 +255,7 @@ const Dashboard = () => {
               </div>
 
               <div className="category-item">
-                <div className="category-icon">⚽</div>
+                <div className="category-icon sports">⚽</div>
                 <div className="category-info">
                   <div className="category-name">Sports</div>
                   <div className="category-desc">Football, Cricket Kit</div>
@@ -288,62 +281,25 @@ const Dashboard = () => {
             {/* Header */}
             <div className="income-header">
               <div className="income-icon">
-                {/* wallet icon */}
-                <div className="wallet" />
+                <img src="/images/wallet-with-bg.png" alt="wallet" className="wallet-image" />
               </div>
 
               <div className="income-info">
                 <div className="income-title">Total Income</div>
                 <div className="row">
                   <div className="income-amount">$459.1k</div>
-                  <div className="income-change">↑ 42.9%</div>
+                  <div className="income-change">+42.9%</div>
                 </div>
               </div>
             </div>
 
-            {/* Chart */}
+            {/* Income Chart Area */}
             <div className="income-chart-area">
               <div className="area-chart">
-                <svg className="chart-svg" viewBox="0 0 300 160" preserveAspectRatio="none">
-                  {/* backgroud grids */}
-                  <g className="grid">
-                    <line x1="0" y1="36" x2="300" y2="36" />
-                    <line x1="0" y1="72" x2="300" y2="72" />
-                    <line x1="0" y1="108" x2="300" y2="108" />
-                    <line x1="0" y1="144" x2="300" y2="144" />
-                  </g>
-
-                  {/* color */}
-                  <defs>
-                    <linearGradient id="incomeGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#6366F1" stopOpacity="0.28" />
-                      <stop offset="100%" stopColor="#6366F1" stopOpacity="0.08" />
-                    </linearGradient>
-                  </defs>
-
-                  {/* line */}
-                  <path
-                    d="M0,120 C35,130 55,120 75,95 C95,70 120,80 135,105 C155,140 190,45 215,80 C235,105 260,115 285,100 C294,96 298,92 300,90 L300,160 L0,160 Z"
-                    fill="url(#incomeGradient)"
-                  />
-                  <path
-                    d="M0,120 C35,130 55,120 75,95 C95,70 120,80 135,105 C155,140 190,45 215,80 C235,105 260,115 285,100 C294,96 298,92 300,90"
-                    stroke="#6366F1" strokeWidth="3" fill="none"
-                  />
-
-                  {/* spot */}
-                  <circle cx="300" cy="90" r="8" fill="#6366F1" />
-                  <circle cx="300" cy="90" r="5.5" fill="#fff" />
-                </svg>
+                <IncomeChart />
               </div>
 
-              {/* month */}
-              <div className="chart-labels">
-                <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span>
-                <span>May</span><span>Jun</span><span>Jul</span>
-              </div>
-
-              {/* week circle and text */}
+              {/* Weekly statistics */}
               <div className="income-week-info">
                 <div className="week-circle">
                   <svg viewBox="0 0 48 48">

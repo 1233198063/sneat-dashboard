@@ -166,12 +166,15 @@
 }
 .dashboard .dashboard-grid > .stats-card {
   height: 180px;
+  width: 100%;
+  overflow: hidden;
 }
 .dashboard .dashboard-grid > .stats-card .card-body {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden;
 }
 @media (max-width: 1024px) {
   .dashboard .dashboard-grid > .stats-card {
@@ -226,47 +229,191 @@
 .dashboard .additional-cards .stats-card {
   height: auto;
 }
-.dashboard .revenue-chart-card .year-select {
-  padding: 8px 12px;
-  border: 1px solid #D7D7DD;
-  border-radius: 6px;
-  font-size: 14px;
-  background: #ffffff;
-  cursor: pointer;
+.dashboard .revenue-chart-card {
+  position: relative;
+  overflow: visible !important;
+  height: 100%;
 }
-.dashboard .revenue-chart-card .chart-placeholder .chart-legend {
+.dashboard .revenue-chart-card.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.dashboard .revenue-chart-card .card-body {
+  padding: 1.2rem !important;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.dashboard .revenue-chart-card .revenue-main-container {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.dashboard .revenue-chart-card .revenue-main-container .left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.dashboard .revenue-chart-card .revenue-main-container .left-section .left-header {
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+}
+.dashboard .revenue-chart-card .revenue-main-container .left-section .left-header .card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(50, 71, 92, 0.87);
+  margin: 0 0 4px 0;
+}
+.dashboard .revenue-chart-card .revenue-main-container .left-section .left-header .card-subtitle {
+  font-size: 14px;
+  color: #8B8B99;
+  margin: 0;
+}
+.dashboard .revenue-chart-card .revenue-main-container .left-section .chart-legend {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
-.dashboard .revenue-chart-card .chart-placeholder .chart-legend .legend-item {
+.dashboard .revenue-chart-card .revenue-main-container .left-section .chart-legend .legend-item {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 14px;
   color: #32475C;
 }
-.dashboard .revenue-chart-card .chart-placeholder .chart-legend .legend-item .legend-dot {
+.dashboard .revenue-chart-card .revenue-main-container .left-section .chart-legend .legend-item .legend-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
 }
-.dashboard .revenue-chart-card .chart-placeholder .chart-area {
-  height: 280px;
-  background: #F5F5F9;
-  border: 2px dashed #D7D7DD;
+.dashboard .revenue-chart-card .revenue-main-container .left-section .chart-area {
+  flex: 1;
+  min-height: 200px;
+  overflow: hidden;
+}
+.dashboard .revenue-chart-card .revenue-main-container .vertical-divider {
+  width: 1px;
+  background: #D1D5DB;
+  flex-shrink: 0;
+  align-self: stretch;
+  margin: -1.5rem 1.5rem;
+  border-radius: 1px;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-shrink: 0;
+  height: 100%;
+  padding: 1rem 0;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-top .year-select-purple {
+  padding: 8px 14px;
+  border: 1px solid #696CFF;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #696CFF;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  min-width: 80px;
+  height: 36px;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-top .year-select-purple:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(105, 108, 255, 0.2);
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-top .year-select-purple option {
+  background: white;
+  color: #374151;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-middle .progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-middle .progress-container .progress-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-middle .progress-container .company-growth {
+  font-size: 13px;
+  color: #8B8B99;
+  text-align: center;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-bottom .revenue-stats {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  justify-content: space-between;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-bottom .revenue-stats .revenue-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-bottom .revenue-stats .revenue-stat .stat-icon {
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #8B8B99;
   font-size: 16px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-bottom .revenue-stats .revenue-stat .stat-icon.stat-2025 {
+  background: rgba(105, 108, 255, 0.1);
+  color: #696CFF;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-bottom .revenue-stats .revenue-stat .stat-icon.stat-2024 {
+  background: rgba(3, 218, 198, 0.1);
+  color: #03DAC6;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-bottom .revenue-stats .revenue-stat .stat-info {
+  flex: 1;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-bottom .revenue-stats .revenue-stat .stat-info .stat-year {
+  font-size: 12px;
+  color: #8B8B99;
+  margin-bottom: 2px;
+}
+.dashboard .revenue-chart-card .revenue-main-container .right-section .right-bottom .revenue-stats .revenue-stat .stat-info .stat-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(50, 71, 92, 0.87);
 }
 .dashboard .revenue-card .revenue-header {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 .dashboard .revenue-card .revenue-header .revenue-title {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: #32475C;
   margin: 0;
@@ -274,25 +421,26 @@
 .dashboard .revenue-card .revenue-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 .dashboard .revenue-card .revenue-content .revenue-value {
-  font-size: 36px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 600;
   color: rgba(50, 71, 92, 0.87);
-  line-height: 1;
+  line-height: 1.1;
+  margin-top: -0.25rem;
 }
 .dashboard .revenue-card .revenue-content .revenue-chart .chart-bars {
   display: flex;
   align-items: flex-end;
-  gap: 8px;
-  height: 60px;
-  margin-bottom: 8px;
+  gap: 6px;
+  height: 50px;
+  margin-bottom: 6px;
 }
 .dashboard .revenue-card .revenue-content .revenue-chart .chart-bars .bar {
   flex: 1;
-  min-height: 8px;
-  border-radius: 2px;
+  min-height: 6px;
+  border-radius: 3px;
   transition: all 0.3s ease;
 }
 .dashboard .revenue-card .revenue-content .revenue-chart .chart-bars .bar:hover {
@@ -301,13 +449,14 @@
 .dashboard .revenue-card .revenue-content .revenue-chart .chart-labels {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
+  gap: 6px;
 }
 .dashboard .revenue-card .revenue-content .revenue-chart .chart-labels span {
-  font-size: 12px;
+  font-size: 11px;
   color: #8B8B99;
   text-align: center;
   flex: 1;
+  font-weight: 500;
 }
 .dashboard .card-menu-btn {
   padding: 6px;
@@ -434,12 +583,22 @@
   border-radius: 16px;
   padding: 20px;
   background: #fff;
+  height: 100%;
+}
+.dashboard .income-expenses-card.sneat.card .card-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 }
 .dashboard .income-expenses-card.sneat .income-tabs {
   display: flex;
-  gap: 16px;
+  justify-content: space-between;
+  width: 100%;
 }
 .dashboard .income-expenses-card.sneat .income-tabs .tab {
+  flex: 1;
+  text-align: center;
   padding: 8px 14px;
   border: 0;
   background: transparent;
@@ -460,18 +619,21 @@
   background: #eef2f7;
   margin: 12px -20px 16px;
 }
+.dashboard .income-expenses-card.sneat .income-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 .dashboard .income-expenses-card.sneat .income-content .income-header {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 .dashboard .income-expenses-card.sneat .income-content .income-header .income-icon {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(99, 102, 241, 0.12);
-  border: 1px solid rgba(99, 102, 241, 0.1);
   display: grid;
   place-items: center;
 }
@@ -480,6 +642,11 @@
   height: 26px;
   border-radius: 6px;
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(99, 102, 241, 0.15));
+}
+.dashboard .income-expenses-card.sneat .income-content .income-header .income-icon .wallet-image {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
 }
 .dashboard .income-expenses-card.sneat .income-content .income-header .income-info .income-title {
   font-size: 15px;
@@ -500,32 +667,23 @@
   color: #16a34a;
   font-weight: 600;
 }
-.dashboard .income-expenses-card.sneat .income-content .income-chart-area .area-chart {
-  margin-bottom: 12px;
-}
-.dashboard .income-expenses-card.sneat .income-content .income-chart-area .chart-svg {
-  width: 100%;
-  height: 180px;
-  /* Higher and more like screenshot */
-}
-.dashboard .income-expenses-card.sneat .income-content .income-chart-area .grid line {
-  stroke: #e9edf3;
-  /* very light gray */
-  stroke-dasharray: 4 6;
-}
-.dashboard .income-expenses-card.sneat .income-content .income-chart-area .chart-labels {
+.dashboard .income-expenses-card.sneat .income-content .income-chart-area {
+  flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  margin: 4px 0 16px;
 }
-.dashboard .income-expenses-card.sneat .income-content .income-chart-area .chart-labels span {
-  font-size: 12px;
-  color: #94a3b8;
+.dashboard .income-expenses-card.sneat .income-content .income-chart-area .area-chart {
+  margin-bottom: 8px;
+  height: 250px;
+  position: relative;
 }
 .dashboard .income-expenses-card.sneat .income-content .income-chart-area .income-week-info {
   display: flex;
   align-items: center;
   gap: 14px;
+  justify-content: center;
+  margin-top: auto;
 }
 .dashboard .income-expenses-card.sneat .income-content .income-chart-area .income-week-info .week-circle {
   position: relative;
