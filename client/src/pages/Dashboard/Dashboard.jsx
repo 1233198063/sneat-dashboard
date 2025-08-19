@@ -8,6 +8,7 @@ import OrderChart from '../../components/charts/OrderChart';
 import ProfitChart from '../../components/charts/ProfitChart';
 import IncomeChart from '../../components/charts/IncomeChart';
 import OrderStatsChart from '../../components/charts/OrderStatsChart';
+import FixedButtons from '../../components/ui/FixedButtons/FixedButtons';
 import './Dashboard.less';
 
 const Dashboard = () => {
@@ -385,6 +386,200 @@ const Dashboard = () => {
           </div>
         </Card>
       </div>
+
+      {/* New Bottom Row */}
+      <div className="new-bottom-section">
+        {/* Activity Timeline */}
+        <Card
+          title="Activity Timeline"
+          action={
+            <button className="card-menu-btn">
+              <MoreHorizontal size={20} />
+            </button>
+          }
+          className="activity-timeline-card"
+        >
+          <div className="activity-timeline">
+            <div className="timeline-item">
+              <div className="timeline-dot timeline-dot-invoice"></div>
+              <div className="timeline-content">
+                <div className="timeline-header">
+                  <span className="timeline-title">12 Invoices have been paid</span>
+                  <span className="timeline-time">12 min ago</span>
+                </div>
+                <div className="timeline-description">Invoices have been paid to the company</div>
+                <div className="timeline-attachment">
+                  <div className="attachment-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="#EF4444"/>
+                      <path d="m14,2 6,6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <span>Invoices.pdf</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="timeline-item">
+              <div className="timeline-dot timeline-dot-meeting"></div>
+              <div className="timeline-content">
+                <div className="timeline-header">
+                  <span className="timeline-title">Client Meeting</span>
+                  <span className="timeline-time">45 min ago</span>
+                </div>
+                <div className="timeline-description">Project meeting with john @10:15am</div>
+                <div className="timeline-client">
+                  <div className="client-avatar">
+                    <img src="/images/avatars/Unsplash-Avatars_0004s_0005_laurence-cruz-P7yvmajPvkM-unsplash.png" alt="Steven Nash" />
+                  </div>
+                  <div className="client-info">
+                    <div className="client-name">Steven Nash (Client)</div>
+                    <div className="client-role">CEO of ThemeSelection</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="timeline-item">
+              <div className="timeline-dot timeline-dot-project"></div>
+              <div className="timeline-content">
+                <div className="timeline-header">
+                  <span className="timeline-title">Create a new project for client</span>
+                  <span className="timeline-time">2 days ago</span>
+                </div>
+                <div className="timeline-description">5 team members in a project</div>
+                <div className="timeline-team">
+                  <div className="team-avatars">
+                    <div className="team-avatar">JD</div>
+                    <div className="team-avatar">MS</div>
+                    <div className="team-avatar">RM</div>
+                    <div className="team-avatar">AK</div>
+                    <div className="team-avatar">+1</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        {/* Browser Analytics */}
+        <Card
+          title=""
+          className="browser-analytics-card"
+        >
+          <div className="browser-analytics">
+            <div className="browser-tabs">
+              <button className="browser-tab active">BROWSER</button>
+              <button className="browser-tab">OPERATING SYSTEM</button>
+              <button className="browser-tab">COUNTRY</button>
+            </div>
+
+            <div className="browser-table">
+              <div className="table-header">
+                <div className="header-cell">NO.</div>
+                <div className="header-cell">BROWSER</div>
+                <div className="header-cell">VISITS</div>
+                <div className="header-cell">DATA IN PERCENTAGE</div>
+              </div>
+
+              <div className="table-body">
+                <div className="table-row">
+                  <div className="cell-number">1</div>
+                  <div className="cell-browser">
+                    <div className="browser-icon chrome"></div>
+                    <span>Chrome</span>
+                  </div>
+                  <div className="cell-visits">8.92k</div>
+                  <div className="cell-percentage">
+                    <div className="percentage-bar">
+                      <div className="percentage-fill" style={{ width: '64.91%', backgroundColor: '#4CAF50' }}></div>
+                    </div>
+                    <span>64.91%</span>
+                  </div>
+                </div>
+
+                <div className="table-row">
+                  <div className="cell-number">2</div>
+                  <div className="cell-browser">
+                    <div className="browser-icon safari"></div>
+                    <span>Safari</span>
+                  </div>
+                  <div className="cell-visits">1.29k</div>
+                  <div className="cell-percentage">
+                    <div className="percentage-bar">
+                      <div className="percentage-fill" style={{ width: '19.03%', backgroundColor: '#6366F1' }}></div>
+                    </div>
+                    <span>19.03%</span>
+                  </div>
+                </div>
+
+                <div className="table-row">
+                  <div className="cell-number">3</div>
+                  <div className="cell-browser">
+                    <div className="browser-icon firefox"></div>
+                    <span>Firefox</span>
+                  </div>
+                  <div className="cell-visits">328</div>
+                  <div className="cell-percentage">
+                    <div className="percentage-bar">
+                      <div className="percentage-fill" style={{ width: '3.26%', backgroundColor: '#06B6D4' }}></div>
+                    </div>
+                    <span>3.26%</span>
+                  </div>
+                </div>
+
+                <div className="table-row">
+                  <div className="cell-number">4</div>
+                  <div className="cell-browser">
+                    <div className="browser-icon edge"></div>
+                    <span>Edge</span>
+                  </div>
+                  <div className="cell-visits">142</div>
+                  <div className="cell-percentage">
+                    <div className="percentage-bar">
+                      <div className="percentage-fill" style={{ width: '3.99%', backgroundColor: '#F59E0B' }}></div>
+                    </div>
+                    <span>3.99%</span>
+                  </div>
+                </div>
+
+                <div className="table-row">
+                  <div className="cell-number">5</div>
+                  <div className="cell-browser">
+                    <div className="browser-icon opera"></div>
+                    <span>Opera</span>
+                  </div>
+                  <div className="cell-visits">85</div>
+                  <div className="cell-percentage">
+                    <div className="percentage-bar">
+                      <div className="percentage-fill" style={{ width: '2.12%', backgroundColor: '#EF4444' }}></div>
+                    </div>
+                    <span>2.12%</span>
+                  </div>
+                </div>
+
+                <div className="table-row">
+                  <div className="cell-number">6</div>
+                  <div className="cell-browser">
+                    <div className="browser-icon brave"></div>
+                    <span>Brave</span>
+                  </div>
+                  <div className="cell-visits">36</div>
+                  <div className="cell-percentage">
+                    <div className="percentage-bar">
+                      <div className="percentage-fill" style={{ width: '1.06%', backgroundColor: '#06B6D4' }}></div>
+                    </div>
+                    <span>1.06%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </Card>
+      </div>
+
+      <FixedButtons />
     </div>
   );
 };

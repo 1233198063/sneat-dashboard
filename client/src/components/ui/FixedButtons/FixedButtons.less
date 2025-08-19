@@ -1,0 +1,121 @@
+// Fixed Buttons Container
+.fixed-buttons {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+
+  // Buy Now Button - exactly same as BasicCards
+  .fixed-buy-now-btn {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    background: #dc2626;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #b91c1c;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+    }
+
+    &:active {
+      background: #991b1b;
+    }
+  }
+
+  // Scroll to Top Button
+  .scroll-to-top-btn {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    border: none !important;
+    background: #6366f1 !important;
+    color: white !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3) !important;
+    transition: all 0.3s ease !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    position: relative !important;
+    z-index: 1001 !important;
+
+    &.hidden {
+      opacity: 0 !important;
+      transform: scale(0.8) !important;
+      pointer-events: none !important;
+    }
+
+    &.visible {
+      opacity: 1 !important;
+      transform: scale(1) !important;
+      animation: fadeInScale 0.3s ease-out;
+    }
+
+    &:hover {
+      background: #5855eb !important;
+      transform: translateY(-2px) scale(1.05) !important;
+      box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4) !important;
+    }
+
+    &:active {
+      background: #4f46e5 !important;
+      transform: translateY(-1px) scale(1) !important;
+    }
+
+    &.hidden:hover {
+      transform: scale(0.8) !important;
+    }
+
+    svg {
+      transition: transform 0.2s ease !important;
+    }
+
+    &:hover svg {
+      transform: translateY(-1px) !important;
+    }
+  }
+
+  // Responsive mobile styles
+  @media (max-width: 768px) {
+    bottom: 24px;
+    right: 24px;
+    gap: 8px;
+    flex-direction: row;
+
+    .fixed-buy-now-btn {
+      font-size: 12px;
+      padding: 10px 16px;
+    }
+
+    .scroll-to-top-btn {
+      width: 36px !important;
+      height: 36px !important;
+    }
+  }
+}
+
+// Animation for scroll to top button
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

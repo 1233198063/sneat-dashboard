@@ -14,6 +14,7 @@ import {
 import { Users, Eye, TrendingUp, Clock, MoreHorizontal } from 'lucide-react';
 import StatsCard from '../../components/dashboard/StatsCard/StatsCard';
 import Card from '../../components/ui/Card/Card';
+import FixedButtons from '../../components/ui/FixedButtons/FixedButtons';
 import './Analytics.less';
 
 const Analytics = () => {
@@ -199,8 +200,8 @@ const Analytics = () => {
         </Card>
       </div>
 
-      {/* Bottom Section */}
-      <div className="bottom-section">
+      {/* Middle Section */}
+      <div className="middle-section">
         {/* Top Pages */}
         <Card
           title="Top Pages"
@@ -254,6 +255,21 @@ const Analytics = () => {
           </div>
         </Card>
       </div>
+
+      {/* Bottom Section */}
+      <div className="bottom-section">
+        {/* Activity Timeline */}
+        <Card title="Activity Timeline" className="activity-card">
+          <div>Activity Timeline content here</div>
+        </Card>
+
+        {/* Browser Analytics */}
+        <Card title="Browser Analytics" className="browser-analytics-card">
+          <div>Browser Analytics content here</div>
+        </Card>
+      </div>
+      
+      <FixedButtons />
     </div>
   );
 };

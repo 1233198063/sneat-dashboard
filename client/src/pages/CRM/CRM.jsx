@@ -11,6 +11,7 @@ import {
 } from 'recharts';
 import StatsCard from '../../components/dashboard/StatsCard/StatsCard';
 import Card from '../../components/ui/Card/Card';
+import FixedButtons from '../../components/ui/FixedButtons/FixedButtons';
 import './CRM.less';
 
 const CRM = () => {
@@ -394,6 +395,8 @@ const CRM = () => {
           </div>
         </Card>
       </div>
+      
+      <FixedButtons />
     </div>
   );
 };

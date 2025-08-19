@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../../components/ui/Card/Card';
 import Button from '../../components/ui/Button/Button';
+import FixedButtons from '../../components/ui/FixedButtons/FixedButtons';
 import './BasicCards.less';
 
 const BasicCards = () => {
@@ -135,8 +136,7 @@ const BasicCards = () => {
         </Card>
       </div>
 
-      {/* Fixed Buy Now Button */}
-      <Button variant="danger" className="fixed-buy-now-btn">BUY NOW</Button>
+      <FixedButtons />
     </div>
   );
 };
