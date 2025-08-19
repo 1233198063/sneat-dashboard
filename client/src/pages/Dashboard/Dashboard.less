@@ -924,28 +924,44 @@
         flex-shrink: 0;
         position: relative;
         z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &.timeline-dot-invoice {
-          background: #EF4444;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
+          background: rgba(147, 51, 234, 0.2);
+          
           &::before {
             content: '';
             width: 12px;
             height: 12px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 2px;
+            background: #9333EA;
+            border-radius: 50%;
           }
         }
 
         &.timeline-dot-meeting {
-          background: #F59E0B;
+          background: rgba(245, 158, 11, 0.2);
+          
+          &::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #F59E0B;
+            border-radius: 50%;
+          }
         }
 
         &.timeline-dot-project {
-          background: #06B6D4;
+          background: rgba(6, 182, 212, 0.2);
+          
+          &::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #06B6D4;
+            border-radius: 50%;
+          }
         }
       }
 
@@ -982,14 +998,20 @@
         .timeline-attachment {
           display: flex;
           align-items: center;
-          gap: 8px;
-          font-size: 13px;
+          gap: 12px;
+          font-size: 16px;
           color: rgba(76, 78, 100, 0.68);
+          font-weight: 500;
 
           .attachment-icon {
             display: flex;
             align-items: center;
             justify-content: center;
+            
+            img {
+              width: 28px;
+              height: 28px;
+            }
           }
         }
 
@@ -1042,20 +1064,16 @@
               justify-content: center;
               font-size: 12px;
               font-weight: 500;
+              overflow: hidden;
 
-              &:nth-child(2) {
-                background: #10B981;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
               }
 
-              &:nth-child(3) {
-                background: #F59E0B;
-              }
-
-              &:nth-child(4) {
-                background: #EF4444;
-              }
-
-              &:nth-child(5) {
+              &:last-child {
                 background: rgba(76, 78, 100, 0.54);
               }
             }
@@ -1142,31 +1160,7 @@
               width: 20px;
               height: 20px;
               border-radius: 4px;
-              position: relative;
-
-              &.chrome {
-                background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335);
-              }
-
-              &.safari {
-                background: linear-gradient(45deg, #007AFF, #5AC8FA);
-              }
-
-              &.firefox {
-                background: linear-gradient(45deg, #FF9500, #FF6611);
-              }
-
-              &.edge {
-                background: linear-gradient(45deg, #0078D4, #00BCF2);
-              }
-
-              &.opera {
-                background: linear-gradient(45deg, #FF1B2D, #A70014);
-              }
-
-              &.brave {
-                background: linear-gradient(45deg, #FB542B, #FF6B35);
-              }
+              object-fit: contain;
             }
           }
 

@@ -78,10 +78,10 @@ const OrderStatsChart = () => {
           datasets: [{
             data: dataValues,
             backgroundColor: [
-              '#6366f1', // Purple - Electronic (80)
-              '#10b981', // Green - Fashion (28)
-              '#06b6d4', // Cyan - Decor (40)
-              '#9ca3af'  // Gray - Sports (20)
+              '#6366f1', // Electronic category
+              '#10b981', // Fashion category  
+              '#06b6d4', // Decor category
+              '#9ca3af'  // Sports category
             ],
             borderWidth: 0,
             cutout: '75%', // Larger cutout for thinner ring

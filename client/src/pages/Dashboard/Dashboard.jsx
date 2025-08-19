@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MoreHorizontal } from 'lucide-react';
 import StatsCard from '../../components/dashboard/StatsCard/StatsCard';
 import Card from '../../components/ui/Card/Card';
@@ -12,6 +12,190 @@ import FixedButtons from '../../components/ui/FixedButtons/FixedButtons';
 import './Dashboard.less';
 
 const Dashboard = () => {
+  const [activeTab, setActiveTab] = useState('browser');
+
+  // Operating Systems data
+  const operatingSystemsData = [
+    {
+      id: 1,
+      name: 'Windows',
+      visits: '475.26k',
+      percentage: 61.5,
+      icon: '/images/icons/windows.png',
+      color: '#4CAF50'
+    },
+    {
+      id: 2,
+      name: 'Mac',
+      visits: '89.12k',
+      percentage: 15.67,
+      icon: '/images/icons/mac.png',
+      color: '#6366F1'
+    },
+    {
+      id: 3,
+      name: 'Ubuntu',
+      visits: '38.68k',
+      percentage: 5.82,
+      icon: '/images/icons/ubuntu.png',
+      color: '#06B6D4'
+    },
+    {
+      id: 4,
+      name: 'Linux',
+      visits: '30.27k',
+      percentage: 5.03,
+      icon: '/images/icons/linux.png',
+      color: '#F59E0B'
+    },
+    {
+      id: 5,
+      name: 'Chrome',
+      visits: '8.34k',
+      percentage: 3.25,
+      icon: '/images/icons/chrome.png',
+      color: '#EF4444'
+    },
+    {
+      id: 6,
+      name: 'Cent',
+      visits: '2.25k',
+      percentage: 1.76,
+      icon: '/images/icons/cent.png',
+      color: '#06B6D4'
+    }
+  ];
+
+  // Browser data
+  const browserData = [
+    {
+      id: 1,
+      name: 'Chrome',
+      visits: '8.92k',
+      percentage: 64.91,
+      icon: '/images/icons/chrome.png',
+      color: '#4CAF50'
+    },
+    {
+      id: 2,
+      name: 'Safari',
+      visits: '1.29k',
+      percentage: 19.03,
+      icon: '/images/icons/safari.png',
+      color: '#6366F1'
+    },
+    {
+      id: 3,
+      name: 'Firefox',
+      visits: '328',
+      percentage: 3.26,
+      icon: '/images/icons/firefox.png',
+      color: '#06B6D4'
+    },
+    {
+      id: 4,
+      name: 'Edge',
+      visits: '142',
+      percentage: 3.99,
+      icon: '/images/icons/edge.png',
+      color: '#F59E0B'
+    },
+    {
+      id: 5,
+      name: 'Opera',
+      visits: '85',
+      percentage: 2.12,
+      icon: '/images/icons/opera.png',
+      color: '#EF4444'
+    },
+    {
+      id: 6,
+      name: 'Brave',
+      visits: '36',
+      percentage: 1.06,
+      icon: '/images/icons/brave.png',
+      color: '#06B6D4'
+    }
+  ];
+
+  // Country data
+  const countryData = [
+    {
+      id: 1,
+      name: 'USA',
+      visits: '87.24k',
+      percentage: 38.12,
+      icon: '/images/countries/usa.png',
+      color: '#4CAF50'
+    },
+    {
+      id: 2,
+      name: 'Brazil',
+      visits: '42.69k',
+      percentage: 28.23,
+      icon: '/images/countries/brazil.png',
+      color: '#6366F1'
+    },
+    {
+      id: 3,
+      name: 'India',
+      visits: '12.58k',
+      percentage: 13.82,
+      icon: '/images/countries/india.png',
+      color: '#06B6D4'
+    },
+    {
+      id: 4,
+      name: 'Australia',
+      visits: '4.13k',
+      percentage: 12.72,
+      icon: '/images/countries/australia.png',
+      color: '#F59E0B'
+    },
+    {
+      id: 5,
+      name: 'China',
+      visits: '2.21k',
+      percentage: 7.11,
+      icon: '/images/countries/china.png',
+      color: '#EF4444'
+    },
+    {
+      id: 6,
+      name: 'France',
+      visits: '1.56k',
+      percentage: 6.59,
+      icon: '/images/countries/france.png',
+      color: '#06B6D4'
+    }
+  ];
+
+  // Get current data based on active tab
+  const getCurrentData = () => {
+    switch (activeTab) {
+      case 'browser':
+        return browserData;
+      case 'os':
+        return operatingSystemsData;
+      case 'country':
+        return countryData;
+      default:
+        return browserData;
+    }
+  };
+
+  const getTableHeader = () => {
+    switch (activeTab) {
+      case 'browser':
+        return 'BROWSER';
+      case 'os':
+        return 'SYSTEM';
+      case 'country':
+        return 'COUNTRY';
+      default:
+        return 'BROWSER';
+    }
+  };
 
   // Statistics data for dashboard cards
   const statsData = [
@@ -410,10 +594,7 @@ const Dashboard = () => {
                 <div className="timeline-description">Invoices have been paid to the company</div>
                 <div className="timeline-attachment">
                   <div className="attachment-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="#EF4444"/>
-                      <path d="m14,2 6,6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                    <img src="/images/icons/pdf.png" alt="PDF" width="28" height="28" />
                   </div>
                   <span>Invoices.pdf</span>
                 </div>
@@ -450,10 +631,18 @@ const Dashboard = () => {
                 <div className="timeline-description">5 team members in a project</div>
                 <div className="timeline-team">
                   <div className="team-avatars">
-                    <div className="team-avatar">JD</div>
-                    <div className="team-avatar">MS</div>
-                    <div className="team-avatar">RM</div>
-                    <div className="team-avatar">AK</div>
+                    <div className="team-avatar">
+                      <img src="/images/avatars/Unsplash-Avatars_0004s_0001_etty-fidele--5S4I0Y8ngY-unsplash.png" alt="Team member" />
+                    </div>
+                    <div className="team-avatar">
+                      <img src="/images/avatars/Unsplash-Avatars_0004s_0002_jessica-felicio-QS9ZX5UnS14-unsplash.png" alt="Team member" />
+                    </div>
+                    <div className="team-avatar">
+                      <img src="/images/avatars/Unsplash-Avatars_0004s_0004_nathan-dumlao-iKwCVH4cyjQ-unsplash.png" alt="Team member" />
+                    </div>
+                    <div className="team-avatar">
+                      <img src="/images/avatars/Unsplash-Avatars_0004s_0006_tyler-nix-_DM28mlR5Bs-unsplash.png" alt="Team member" />
+                    </div>
                     <div className="team-avatar">+1</div>
                   </div>
                 </div>
@@ -469,109 +658,57 @@ const Dashboard = () => {
         >
           <div className="browser-analytics">
             <div className="browser-tabs">
-              <button className="browser-tab active">BROWSER</button>
-              <button className="browser-tab">OPERATING SYSTEM</button>
-              <button className="browser-tab">COUNTRY</button>
+              <button 
+                className={`browser-tab ${activeTab === 'browser' ? 'active' : ''}`}
+                onClick={() => setActiveTab('browser')}
+              >
+                BROWSER
+              </button>
+              <button 
+                className={`browser-tab ${activeTab === 'os' ? 'active' : ''}`}
+                onClick={() => setActiveTab('os')}
+              >
+                OPERATING SYSTEM
+              </button>
+              <button 
+                className={`browser-tab ${activeTab === 'country' ? 'active' : ''}`}
+                onClick={() => setActiveTab('country')}
+              >
+                COUNTRY
+              </button>
             </div>
 
             <div className="browser-table">
               <div className="table-header">
                 <div className="header-cell">NO.</div>
-                <div className="header-cell">BROWSER</div>
+                <div className="header-cell">{getTableHeader()}</div>
                 <div className="header-cell">VISITS</div>
                 <div className="header-cell">DATA IN PERCENTAGE</div>
               </div>
 
               <div className="table-body">
-                <div className="table-row">
-                  <div className="cell-number">1</div>
-                  <div className="cell-browser">
-                    <div className="browser-icon chrome"></div>
-                    <span>Chrome</span>
-                  </div>
-                  <div className="cell-visits">8.92k</div>
-                  <div className="cell-percentage">
-                    <div className="percentage-bar">
-                      <div className="percentage-fill" style={{ width: '64.91%', backgroundColor: '#4CAF50' }}></div>
+                {getCurrentData().map((item, index) => (
+                  <div key={item.id} className="table-row">
+                    <div className="cell-number">{index + 1}</div>
+                    <div className="cell-browser">
+                      <img src={item.icon} alt={item.name} className="browser-icon" />
+                      <span>{item.name}</span>
                     </div>
-                    <span>64.91%</span>
-                  </div>
-                </div>
-
-                <div className="table-row">
-                  <div className="cell-number">2</div>
-                  <div className="cell-browser">
-                    <div className="browser-icon safari"></div>
-                    <span>Safari</span>
-                  </div>
-                  <div className="cell-visits">1.29k</div>
-                  <div className="cell-percentage">
-                    <div className="percentage-bar">
-                      <div className="percentage-fill" style={{ width: '19.03%', backgroundColor: '#6366F1' }}></div>
+                    <div className="cell-visits">{item.visits}</div>
+                    <div className="cell-percentage">
+                      <div className="percentage-bar">
+                        <div 
+                          className="percentage-fill" 
+                          style={{ 
+                            width: `${item.percentage}%`, 
+                            backgroundColor: item.color 
+                          }}
+                        ></div>
+                      </div>
+                      <span>{item.percentage}%</span>
                     </div>
-                    <span>19.03%</span>
                   </div>
-                </div>
-
-                <div className="table-row">
-                  <div className="cell-number">3</div>
-                  <div className="cell-browser">
-                    <div className="browser-icon firefox"></div>
-                    <span>Firefox</span>
-                  </div>
-                  <div className="cell-visits">328</div>
-                  <div className="cell-percentage">
-                    <div className="percentage-bar">
-                      <div className="percentage-fill" style={{ width: '3.26%', backgroundColor: '#06B6D4' }}></div>
-                    </div>
-                    <span>3.26%</span>
-                  </div>
-                </div>
-
-                <div className="table-row">
-                  <div className="cell-number">4</div>
-                  <div className="cell-browser">
-                    <div className="browser-icon edge"></div>
-                    <span>Edge</span>
-                  </div>
-                  <div className="cell-visits">142</div>
-                  <div className="cell-percentage">
-                    <div className="percentage-bar">
-                      <div className="percentage-fill" style={{ width: '3.99%', backgroundColor: '#F59E0B' }}></div>
-                    </div>
-                    <span>3.99%</span>
-                  </div>
-                </div>
-
-                <div className="table-row">
-                  <div className="cell-number">5</div>
-                  <div className="cell-browser">
-                    <div className="browser-icon opera"></div>
-                    <span>Opera</span>
-                  </div>
-                  <div className="cell-visits">85</div>
-                  <div className="cell-percentage">
-                    <div className="percentage-bar">
-                      <div className="percentage-fill" style={{ width: '2.12%', backgroundColor: '#EF4444' }}></div>
-                    </div>
-                    <span>2.12%</span>
-                  </div>
-                </div>
-
-                <div className="table-row">
-                  <div className="cell-number">6</div>
-                  <div className="cell-browser">
-                    <div className="browser-icon brave"></div>
-                    <span>Brave</span>
-                  </div>
-                  <div className="cell-visits">36</div>
-                  <div className="cell-percentage">
-                    <div className="percentage-bar">
-                      <div className="percentage-fill" style={{ width: '1.06%', backgroundColor: '#06B6D4' }}></div>
-                    </div>
-                    <span>1.06%</span>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 

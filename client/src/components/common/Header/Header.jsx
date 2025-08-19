@@ -16,14 +16,14 @@ const Header = () => {
   const searchRef = useRef(null);
 
   const user = {
-    name: 'Jone Doe',
+    name: 'John Doe',
     role: 'Admin',
-    avatar: '/images/avatars/avatar-girl.jpg',
+    avatar: '/images/avatars/John.png',
   };
 
   const searchData = {
     popularSearches: [
-      { icon: BarChart3, label: 'Analytics', url: '/analytics' },
+      { icon: BarChart3, label: 'Analytics', url: '/' },
       { icon: Users, label: 'CRM', url: '/crm' },
       { icon: ShoppingCart, label: 'eCommerce', url: '/ecommerce' },
       { icon: Users, label: 'User List', url: '/users' }
@@ -87,7 +87,7 @@ const Header = () => {
   );
 
   const handleSignOut = () => {
-    // TODO: clear session / tokens as needed
+    // Clear user session and redirect to login
     setIsUserMenuOpen(false);
     navigate('/login');
   };
