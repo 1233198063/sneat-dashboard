@@ -311,6 +311,578 @@
   background: #F3F3F7;
   color: #2B3448;
 }
+.crm-page .second-row-cards {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1024px) {
+  .crm-page .second-row-cards {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+.crm-page .top-products-card .products-container {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .crm-page .top-products-card .products-container {
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
+  .crm-page .top-products-card .products-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #EAEAEE;
+    transform: translateX(-50%);
+  }
+}
+.crm-page .top-products-card .products-section .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.crm-page .top-products-card .products-section .products-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2B3448;
+  margin: 0;
+}
+.crm-page .top-products-card .products-section .products-title .title-highlight {
+  color: #696CFF;
+}
+.crm-page .top-products-card .products-section .products-title .title-highlight.volume {
+  color: #696CFF;
+}
+.crm-page .top-products-card .products-section .products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.crm-page .top-products-card .products-section .product-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+}
+.crm-page .top-products-card .products-section .product-item .product-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.crm-page .top-products-card .products-section .product-item .product-info .product-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.crm-page .top-products-card .products-section .product-item .product-info .product-details .product-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(50, 71, 92, 0.87);
+  margin-bottom: 2px;
+}
+.crm-page .top-products-card .products-section .product-item .product-info .product-details .product-brand {
+  font-size: 12px;
+  color: #8B8B99;
+}
+.crm-page .top-products-card .products-section .product-item .product-sales {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(50, 71, 92, 0.87);
+}
+.crm-page .top-products-card .products-section .product-item .product-volume {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: right;
+}
+.crm-page .top-products-card .products-section .product-item .product-volume .volume-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(50, 71, 92, 0.87);
+}
+.crm-page .top-products-card .products-section .product-item .product-volume .volume-change {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.crm-page .top-products-card .products-section .product-item .product-volume .volume-change.positive {
+  background-color: rgba(113, 221, 55, 0.1);
+  color: #4CAF50;
+}
+.crm-page .top-products-card .products-section .product-item .product-volume .volume-change.negative {
+  background-color: rgba(255, 76, 76, 0.1);
+  color: #FF4C4C;
+}
+.crm-page .earning-report-card .card-header {
+  margin-bottom: 0px;
+}
+.crm-page .earning-report-card .earning-content .earning-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+.crm-page .earning-report-card .earning-content .metric-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.crm-page .earning-report-card .earning-content .metric-item .metric-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.crm-page .earning-report-card .earning-content .metric-item .metric-header .metric-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.crm-page .earning-report-card .earning-content .metric-item .metric-header .metric-info .metric-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(50, 71, 92, 0.87);
+  margin-bottom: 2px;
+}
+.crm-page .earning-report-card .earning-content .metric-item .metric-header .metric-info .metric-subtext {
+  font-size: 12px;
+  color: #8B8B99;
+}
+.crm-page .earning-report-card .earning-content .metric-item .metric-values {
+  text-align: right;
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+.crm-page .earning-report-card .earning-content .metric-item .metric-values .metric-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(50, 71, 92, 0.87);
+  margin-bottom: 2px;
+}
+.crm-page .earning-report-card .earning-content .metric-item .metric-values .metric-change {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background-color: rgba(113, 221, 55, 0.1);
+}
+.crm-page .earning-report-card .earning-content .metric-item .metric-values .metric-change.positive {
+  color: #4CAF50;
+}
+.crm-page .earning-report-card .earning-content .earning-chart {
+  height: 120px;
+  margin-top: 0.5rem;
+}
+.crm-page .third-row-cards {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1024px) {
+  .crm-page .third-row-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.crm-page .sales-analytics-card .time-select {
+  border: 1px solid #696CFF;
+  color: #696CFF;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  background: #ffffff;
+  cursor: pointer;
+}
+.crm-page .sales-analytics-card .time-select:focus {
+  outline: none;
+  border-color: #696CFF;
+  box-shadow: 0 0 0 3px rgba(105, 108, 255, 0.1);
+}
+.crm-page .sales-analytics-card .analytics-content .analytics-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.crm-page .sales-analytics-card .analytics-content .analytics-summary .summary-badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.crm-page .sales-analytics-card .analytics-content .analytics-summary .summary-badge.positive {
+  background-color: rgba(113, 221, 55, 0.1);
+  color: #4CAF50;
+}
+.crm-page .sales-analytics-card .analytics-content .analytics-summary .summary-text {
+  font-size: 14px;
+  color: #32475C;
+}
+.crm-page .sales-analytics-card .sales-heatmap {
+  width: 100%;
+}
+.crm-page .sales-analytics-card .sales-heatmap .heatmap-container {
+  position: relative;
+}
+.crm-page .sales-analytics-card .sales-heatmap .heatmap-container .y-axis-labels {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 32px;
+  width: 20px;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  gap: 4px;
+  z-index: 1;
+}
+.crm-page .sales-analytics-card .sales-heatmap .heatmap-container .y-axis-labels .y-axis-label {
+  font-size: 12px;
+  color: #8B8B99;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 4px;
+}
+.crm-page .sales-analytics-card .sales-heatmap .heatmap-container .heatmap-content {
+  margin-left: 28px;
+}
+.crm-page .sales-analytics-card .sales-heatmap .heatmap-container .heatmap-content .heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 4px;
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 8px;
+}
+.crm-page .sales-analytics-card .sales-heatmap .heatmap-container .heatmap-content .heatmap-grid .heatmap-cell {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.crm-page .sales-analytics-card .sales-heatmap .heatmap-container .heatmap-content .heatmap-grid .heatmap-cell:hover {
+  transform: scale(1.1);
+}
+.crm-page .sales-analytics-card .sales-heatmap .heatmap-container .heatmap-content .x-axis-labels {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 4px;
+  height: 24px;
+}
+.crm-page .sales-analytics-card .sales-heatmap .heatmap-container .heatmap-content .x-axis-labels .x-axis-label {
+  font-size: 12px;
+  color: #8B8B99;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.crm-page .sales-countries-card .countries-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.crm-page .sales-countries-card .countries-list .country-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.crm-page .sales-countries-card .countries-list .country-item .country-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+.crm-page .sales-countries-card .countries-list .country-item .country-info .country-flag {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.crm-page .sales-countries-card .countries-list .country-item .country-info .country-flag .flag-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.crm-page .sales-countries-card .countries-list .country-item .country-info .country-details {
+  flex: 1;
+}
+.crm-page .sales-countries-card .countries-list .country-item .country-info .country-details .sales-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 4px;
+}
+.crm-page .sales-countries-card .countries-list .country-item .country-info .country-details .sales-info .sales-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(50, 71, 92, 0.87);
+}
+.crm-page .sales-countries-card .countries-list .country-item .country-info .country-details .sales-info .sales-change {
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.crm-page .sales-countries-card .countries-list .country-item .country-info .country-details .sales-info .sales-change.positive {
+  color: #4CAF50;
+}
+.crm-page .sales-countries-card .countries-list .country-item .country-info .country-details .sales-info .sales-change.negative {
+  color: #FF4C4C;
+}
+.crm-page .sales-countries-card .countries-list .country-item .country-info .country-details .country-name {
+  font-size: 14px;
+  color: #8B8B99;
+  text-transform: capitalize;
+}
+.crm-page .sales-countries-card .countries-list .country-item .country-right-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #32475C;
+  flex-shrink: 0;
+}
+.crm-page .sales-stats-card .stats-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 4rem;
+}
+.crm-page .sales-stats-card .stats-content .circular-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.crm-page .sales-stats-card .stats-content .circular-progress .progress-legend {
+  display: flex;
+  gap: 1rem;
+}
+.crm-page .sales-stats-card .stats-content .circular-progress .progress-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 12px;
+  color: #32475C;
+}
+.crm-page .sales-stats-card .stats-content .circular-progress .progress-legend .legend-item .legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.crm-page .sales-stats-card .stats-content .circular-progress .progress-legend .legend-item .legend-dot.conversion {
+  background-color: #71DD37;
+}
+.crm-page .sales-stats-card .stats-content .circular-progress .progress-legend .legend-item .legend-dot.total {
+  background-color: #D7D7DD;
+}
+.crm-page .sales-stats-card .stats-content .doughnut-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+}
+.crm-page .sales-stats-card .stats-content .doughnut-container .doughnut-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.crm-page .sales-stats-card .stats-content .doughnut-container .doughnut-center .center-icons {
+  margin-bottom: 8px;
+}
+.crm-page .sales-stats-card .stats-content .doughnut-container .doughnut-center .center-icons .icon-arrow {
+  font-size: 18px;
+  color: #71DD37;
+  font-weight: bold;
+}
+.crm-page .sales-stats-card .stats-content .doughnut-container .doughnut-center .center-percentage {
+  font-size: 28px;
+  font-weight: 700;
+  color: rgba(50, 71, 92, 0.87);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.crm-page .sales-stats-card .stats-content .doughnut-container .doughnut-center .center-label {
+  font-size: 14px;
+  color: #8B8B99;
+}
+.crm-page .sales-stats-card .stats-content .doughnut-legend {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: auto;
+}
+.crm-page .sales-stats-card .stats-content .doughnut-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 12px;
+  color: #32475C;
+}
+.crm-page .sales-stats-card .stats-content .doughnut-legend .legend-item .legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.crm-page .sales-stats-card .stats-content .doughnut-legend .legend-item .legend-dot.conversion {
+  background-color: #71DD37;
+}
+.crm-page .sales-stats-card .stats-content .doughnut-legend .legend-item .legend-dot.total {
+  background-color: #F5F5F9;
+}
+.crm-page .fifth-row-cards {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1024px) {
+  .crm-page .fifth-row-cards {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+.crm-page .team-members-card .team-members-table .table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0 0 1rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #EAEAEE;
+}
+@media (max-width: 768px) {
+  .crm-page .team-members-card .team-members-table .table-header {
+    display: none;
+  }
+}
+.crm-page .team-members-card .team-members-table .table-header .header-cell {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8B8B99;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.crm-page .team-members-card .team-members-table .team-members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.crm-page .team-members-card .team-members-table .team-members-list .team-member-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #F3F3F7;
+  transition: all 0.2s ease;
+}
+.crm-page .team-members-card .team-members-table .team-members-list .team-member-item:hover {
+  background: #F5F5F9;
+}
+.crm-page .team-members-card .team-members-table .team-members-list .team-member-item:last-child {
+  border-bottom: none;
+}
+@media (max-width: 768px) {
+  .crm-page .team-members-card .team-members-table .team-members-list .team-member-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1.5rem 0;
+  }
+}
+.crm-page .team-members-card .team-members-table .team-members-list .team-member-item .member-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.crm-page .team-members-card .team-members-table .team-members-list .team-member-item .member-info .member-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 159, 64, 0.125);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff9f40;
+  font-weight: 600;
+  font-size: 14px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.crm-page .team-members-card .team-members-table .team-members-list .team-member-item .member-info .member-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.crm-page .team-members-card .team-members-table .team-members-list .team-member-item .member-info .member-details {
+  min-width: 0;
+}
+.crm-page .team-members-card .team-members-table .team-members-list .team-member-item .member-info .member-details .member-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(50, 71, 92, 0.87);
+  margin-bottom: 2px;
+}
+.crm-page .team-members-card .team-members-table .team-members-list .team-member-item .member-info .member-details .member-role {
+  font-size: 12px;
+  color: #8B8B99;
+}
+.crm-page .team-members-card .team-members-table .team-members-list .team-member-item .member-project .project-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.crm-page .team-members-card .team-members-table .team-members-list .team-member-item .member-tasks {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2B3448;
+}
+.crm-page .team-members-card .team-members-table .team-members-list .team-member-item .member-progress .progress-container {
+  position: relative;
+  display: inline-block;
+}
+.crm-page .team-members-card .team-members-table .team-members-list .team-member-item .member-progress .progress-container .progress-circle {
+  width: 50px;
+  height: 50px;
+}
+.crm-page .team-members-card .team-members-table .team-members-list .team-member-item .member-progress .progress-container .progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  font-weight: 600;
+  color: #2B3448;
+}
 .crm-page .stats-grid {
   display: grid;
   gap: 1.5rem;
@@ -458,9 +1030,9 @@
 }
 .crm-page .customers-table-card .customers-table .table-header {
   display: grid;
-  grid-template-columns: 2fr 1.5fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr;
   gap: 1rem;
-  padding: 1rem 0;
+  padding: 0 0 1rem 0;
   border-bottom: 1px solid #EAEAEE;
   margin-bottom: 1rem;
 }
@@ -470,7 +1042,7 @@
   }
 }
 .crm-page .customers-table-card .customers-table .table-header .header-cell {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: #8B8B99;
   text-transform: uppercase;
@@ -478,11 +1050,11 @@
 }
 .crm-page .customers-table-card .customers-table .table-row {
   display: grid;
-  grid-template-columns: 2fr 1.5fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr;
   gap: 1rem;
   align-items: center;
   padding: 1rem 0;
-  border-bottom: 1px solid #EAEAEE;
+  border-bottom: 1px solid #F3F3F7;
   transition: all 0.2s ease;
 }
 .crm-page .customers-table-card .customers-table .table-row:hover {
@@ -507,7 +1079,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #6366F1;
+  background: #EAEAEE;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -515,6 +1087,12 @@
   font-weight: 600;
   font-size: 14px;
   flex-shrink: 0;
+  overflow: hidden;
+}
+.crm-page .customers-table-card .customers-table .customer-info .customer-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .crm-page .customers-table-card .customers-table .customer-info .customer-details {
   min-width: 0;
@@ -529,21 +1107,10 @@
   font-size: 12px;
   color: #8B8B99;
 }
-.crm-page .customers-table-card .customers-table .customer-company .company-name {
+.crm-page .customers-table-card .customers-table .customer-amount {
   font-size: 14px;
-  font-weight: 500;
-  color: #2B3448;
-  margin-bottom: 4px;
-}
-.crm-page .customers-table-card .customers-table .customer-company .company-location {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  color: #8B8B99;
-}
-.crm-page .customers-table-card .customers-table .customer-company .company-location svg {
-  flex-shrink: 0;
+  font-weight: 600;
+  color: rgba(50, 71, 92, 0.87);
 }
 .crm-page .customers-table-card .customers-table .customer-status .status-badge {
   display: inline-block;
@@ -554,14 +1121,19 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.crm-page .customers-table-card .customers-table .customer-value {
-  font-size: 14px;
+.crm-page .customers-table-card .customers-table .customer-payment {
+  font-size: 12px;
   font-weight: 600;
-  color: rgba(50, 71, 92, 0.87);
+}
+.crm-page .customers-table-card .customers-table .customer-payment .payment-icon {
+  width: 60px;
+  height: 28px;
+  object-fit: contain;
 }
 .crm-page .customers-table-card .customers-table .customer-actions {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
 }
 .crm-page .customers-table-card .customers-table .customer-actions .action-btn {
