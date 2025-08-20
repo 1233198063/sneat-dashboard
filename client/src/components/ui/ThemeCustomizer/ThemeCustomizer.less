@@ -1,0 +1,298 @@
+@import '../../../styles/variables.less';
+
+// Fixed Settings Button for Theme Customizer - Global button for all pages
+.fixed-theme-settings-btn {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: rgba(106, 108, 255, 1);
+  color: white;
+  border-radius: 10px 0 0 10px; // Rounded corners only on the left side
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: -2px 0 6px rgba(106, 108, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(106, 108, 255, 0.9);
+    transform: translateY(-50%) translateX(-4px); // Slight move away from edge on hover
+    box-shadow: -3px 0 10px rgba(106, 108, 255, 0.4);
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px 0 0 8px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+// Theme Customizer Menu - Slide-out panel from right
+.theme-customizer-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1050;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+
+  &.open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  // Overlay background
+  .theme-menu-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  // Menu content panel
+  .theme-menu-content {
+    position: absolute;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: @white;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+    transition: right 0.3s ease;
+
+    @media (max-width: 480px) {
+      width: 100%;
+      right: -100%;
+    }
+  }
+
+  &.open .theme-menu-content {
+    right: 0;
+  }
+
+  // Header section
+  .theme-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem 2rem 1rem 2rem;
+    border-bottom: 1px solid @gray-200;
+    gap: 1rem;
+
+    .theme-menu-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: @gray-700;
+      margin: 0 0 4px 0;
+      letter-spacing: 0.5px;
+    }
+
+    .theme-menu-subtitle {
+      font-size: 14px;
+      color: @gray-500;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .theme-menu-close {
+      padding: 8px;
+      border: none;
+      background: none;
+      color: @gray-500;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+
+      &:hover {
+        background: @gray-100;
+        color: @gray-700;
+      }
+    }
+  }
+
+  // Theme sections
+  .theme-section {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid @gray-100;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 2rem;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: @gray-400;
+      margin: 0 0 1.5rem 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+
+  // Theme options
+  .theme-option {
+    margin-bottom: 2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .option-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: @gray-700;
+      margin: 0 0 1rem 0;
+    }
+  }
+
+  // Radio button groups
+  .radio-group {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+
+      input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        margin: 0 8px 0 0;
+        accent-color: @primary-color;
+        cursor: pointer;
+      }
+
+      .radio-label {
+        font-size: 14px;
+        color: @gray-600;
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+  }
+
+  // Color palette
+  .color-palette {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    .color-swatch {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      &.selected {
+        border-color: @white;
+        box-shadow: 0 0 0 2px currentColor, 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      &.selected::after {
+        content: '✓';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: @white;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  // Toggle switch for AppBar Blur
+  .toggle-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    .option-title {
+      margin: 0;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+      cursor: pointer;
+
+      input[type="checkbox"] {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: @gray-300;
+        transition: 0.3s;
+        border-radius: 24px;
+
+        &:before {
+          position: absolute;
+          content: "";
+          height: 18px;
+          width: 18px;
+          left: 3px;
+          bottom: 3px;
+          background-color: @white;
+          transition: 0.3s;
+          border-radius: 50%;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      input:checked + .toggle-slider {
+        background-color: @primary-color;
+      }
+
+      input:checked + .toggle-slider:before {
+        transform: translateX(24px);
+      }
+    }
+  }
+}

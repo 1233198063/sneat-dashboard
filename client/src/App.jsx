@@ -6,6 +6,7 @@ import CRM from './pages/CRM/CRM';
 import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
 import BasicCards from './pages/Cards/BasicCards';
+import ThemeCustomizer from './components/ui/ThemeCustomizer/ThemeCustomizer';
 import './App.less';
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
             <Route path="/cards/basic" element={<BasicCards />} />
           </Routes>
         </Layout>
+        {/* Global Theme Customizer - appears on all pages */}
+        <ThemeCustomizer />
       </div>
     </Router>
   );

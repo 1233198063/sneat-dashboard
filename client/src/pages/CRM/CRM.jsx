@@ -1,23 +1,58 @@
 import React, { useState } from 'react';
 import { 
-  Users, UserCheck, TrendingUp, DollarSign, 
+  Users, UserCheck, TrendingUp, 
   Phone, Mail, Calendar, MoreHorizontal,
-  Star, MapPin, Clock, Target
+  MapPin, Clock, Star, Package
 } from 'lucide-react';
 import { 
   ResponsiveContainer, AreaChart, Area, XAxis, YAxis, 
-  CartesianGrid, Tooltip, PieChart, Pie, Cell,
-  BarChart, Bar, FunnelChart, Funnel, LabelList
+  CartesianGrid, Tooltip, LineChart, Line, BarChart, Bar,
+  PieChart, Pie, Cell
 } from 'recharts';
+import CustomerRatingsChart from '../../components/charts/CustomerRatingsChart';
+import SalesActivityChart from '../../components/charts/SalesActivityChart';
+import SessionsChart from '../../components/charts/SessionsChart';
+import GeneratedLeadsChart from '../../components/charts/GeneratedLeadsChart';
 import StatsCard from '../../components/dashboard/StatsCard/StatsCard';
 import Card from '../../components/ui/Card/Card';
 import FixedButtons from '../../components/ui/FixedButtons/FixedButtons';
 import './CRM.less';
 
 const CRM = () => {
-  const [timeRange, setTimeRange] = useState('7d');
 
-  // CRM statistics data
+  // Customer ratings data
+  const ratingsData = [
+    { month: 'Jan', rating: 3.2 },
+    { month: 'Feb', rating: 3.5 },
+    { month: 'Mar', rating: 4.1 },
+    { month: 'Apr', rating: 3.8 },
+    { month: 'May', rating: 3.9 },
+    { month: 'Jun', rating: 4.2 },
+    { month: 'Jul', rating: 4.0 }
+  ];
+
+  // Sales activity data
+  const salesActivityData = [
+    { month: 'Jan', sales: 16, activity: 12 },
+    { month: 'Feb', sales: 8, activity: 18 },
+    { month: 'Mar', sales: 20, activity: 8 },
+    { month: 'Apr', sales: 25, activity: 14 },
+    { month: 'May', sales: 12, activity: 2 },
+    { month: 'Jun', sales: 28, activity: 16 },
+    { month: 'Jul', sales: 15, activity: 14 }
+  ];
+
+  // Sessions trend data
+  const sessionsData = [
+    { point: 1, value: 2400 },
+    { point: 2, value: 2600 },
+    { point: 3, value: 2300 },
+    { point: 4, value: 2700 },
+    { point: 5, value: 2500 },
+    { point: 6, value: 2845 }
+  ];
+
+  // CRM statistics data (keeping for lower sections)
   const crmStats = [
     { title: 'Total Customers', value: 21459, change: '+29%', changeType: 'positive', icon: Users, iconType: 'primary' },
     { title: 'Paid Users', value: 4567, change: '+18%', changeType: 'positive', icon: UserCheck, iconType: 'success' },
@@ -153,27 +188,109 @@ const CRM = () => {
     }
   };
 
+
   return (
     <div className="crm-page">
-      {/* Page Header */}
-      <div className="page-header">
-        <div className="page-header-content">
-          <div>
-            <h1 className="page-title">CRM Dashboard</h1>
-            <p className="page-subtitle">Track your customer relationships and sales performance</p>
+
+      {/* Top Cards Row */}
+      <div className="top-cards-grid">
+        {/* Customer Ratings Card */}
+        <Card 
+          title="Customer Ratings" 
+          action={
+            <button className="card-menu-btn">
+              <MoreHorizontal size={20} />
+            </button>
+          }
+          className="customer-ratings-card"
+        >
+          <div className="rating-summary">
+            <div className="rating-score-with-stars">
+              <div className="rating-score">4.0</div>
+              <div className="rating-stars">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star 
+                    key={star} 
+                    size={20} 
+                    fill={star <= 4 ? '#FFD700' : 'none'} 
+                    stroke={star <= 4 ? '#FFD700' : '#E5E7EB'} 
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="rating-change">
+              <span className="change-badge purple">+5.0</span>
+              <span className="change-text">Points from last month</span>
+            </div>
           </div>
-          <div className="page-actions">
-            <select 
-              value={timeRange} 
-              onChange={(e) => setTimeRange(e.target.value)}
-              className="time-select"
-            >
-              <option value="7d">Last 7 days</option>
-              <option value="30d">Last 30 days</option>
-              <option value="90d">Last 90 days</option>
-              <option value="1y">Last year</option>
-            </select>
+          <CustomerRatingsChart ratingsData={ratingsData} />
+        </Card>
+
+        {/* Overview & Sales Activity Card */}
+        <Card 
+          title="Overview & Sales Activity"
+          subtitle="Check out each column for more details"
+          action={
+            <button className="card-menu-btn">
+              <MoreHorizontal size={20} />
+            </button>
+          }
+          className="sales-activity-card"
+        >
+          <SalesActivityChart salesActivityData={salesActivityData} />
+        </Card>
+
+        {/* Right Side Cards Container */}
+        <div className="right-cards-container">
+          {/* Top Small Cards Row */}
+          <div className="top-small-cards">
+            {/* Sessions Card */}
+            <Card className="sessions-card">
+              <h3 className="card-title">Sessions</h3>
+              <div className="metric-value">2845</div>
+              <div className="mini-chart">
+                <SessionsChart sessionsData={sessionsData} />
+              </div>
+            </Card>
+
+            {/* Order Card */}
+            <Card className="order-card">
+              <div className="card-header">
+                <div className="card-icon">
+                  <Package size={24} className="icon-cube" />
+                </div>
+                <button className="card-menu-btn">
+                  <MoreHorizontal size={16} />
+                </button>
+              </div>
+              <h3 className="card-title">Order</h3>
+              <div className="metric-value">$1,286</div>
+              <div className="metric-change negative">
+                <span>↓ 13.24%</span>
+              </div>
+            </Card>
           </div>
+
+          {/* Generated Leads Card */}
+          <Card className="generated-leads-card">
+            <div className="leads-content">
+              <div className="leads-text">
+                <div className="card-header-simple">
+                  <div>
+                    <h3 className="card-title">Generated Leads</h3>
+                    <p className="card-subtitle">Monthly Report</p>
+                  </div>
+                </div>
+                <div className="leads-stats">
+                  <div className="leads-number">4,234</div>
+                  <div className="leads-change positive">↑ 12.8%</div>
+                </div>
+              </div>
+              <div className="progress-container">
+                <GeneratedLeadsChart />
+              </div>
+            </div>
+          </Card>
         </div>
       </div>
 
@@ -396,6 +513,7 @@ const CRM = () => {
         </Card>
       </div>
       
+
       <FixedButtons />
     </div>
   );
