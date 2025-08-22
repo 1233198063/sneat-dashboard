@@ -1,0 +1,255 @@
+.ecommerce-page {
+  width: 100%;
+
+  .first-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    .congratulations-card {
+      background: white;
+      min-height: 150px;
+      max-height: 200px;
+      position: relative;
+      overflow: visible;
+
+      .card-body {
+        display: flex;
+        padding: 0;
+        height: 100%;
+      }
+
+      .congrats-content {
+        height: 100%;
+        padding: 1.5rem;
+        padding-right: 0;
+
+        .congrats-text {
+          flex: 1;
+
+          .congrats-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            line-height: 1.2;
+            color: #333;
+            white-space: nowrap;
+          }
+
+          .congrats-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin: 0 0 8px 0;
+          }
+
+          .congrats-amount {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 2px 0;
+            color: #696cff;
+          }
+
+          .congrats-target {
+            font-size: 14px;
+            color: #666;
+            margin: 0 0 12px 0;
+          }
+
+          .view-sales-btn {
+            background: #696cff;
+            border: 1px solid #696cff;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:hover {
+              background: #5a67d8;
+              border-color: #5a67d8;
+            }
+          }
+        }
+
+        
+      }
+
+      .congrats-illustration {
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+
+          .trophy-image {
+            width: 160px;
+            height: 160px;
+            object-fit: contain;
+            display: block;
+          }
+        }
+    }
+
+    .visitors-activity-card {
+      max-height: 200px;
+      .card-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 0;
+          bottom:0;
+          width: 1px;
+          background-color: #e5e7eb;
+          transform: translateX(-50%);
+        }
+
+        .visitors-section,
+        .activity-section {
+          .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+
+            .section-title {
+              font-size: 16px;
+              font-weight: 600;
+              margin: 0;
+              color: #555;
+            }
+
+            .section-period {
+              font-size: 12px;
+              color: #999;
+            }
+          }
+
+          .visitors-stats,
+          .activity-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 0.5rem;
+            padding: 0 1rem;
+
+            .stats-left {
+              flex: 0 0 auto;
+              min-width: 100px;
+              max-width: 140px;
+
+              .main-stat {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                margin-bottom: 0;
+
+                .stat-number {
+                  font-size: 32px;
+                  font-weight: 700;
+                  color: #333;
+                }
+
+                .stat-change {
+                  font-size: 14px;
+                  font-weight: 500;
+
+                  &.positive {
+                    color: #71dd37;
+                  }
+
+                  &.negative {
+                    color: #ff4c4c;
+                  }
+                }
+              }
+            }
+
+            .chart-section {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              min-width: 140px;
+              max-width: 200px;
+
+              .chart-placeholder {
+                height: 80px;
+                margin-bottom: 8px;
+
+                &.visitors-chart {
+                  display: block;
+                  width: 100%;
+                  height: 80px;
+
+                  .visitors-chart-container {
+                    height: 80px;
+                    width: 100%;
+                  }
+                }
+
+                &.activity-chart {
+                  .area-chart {
+                    width: 100%;
+                    height: 100%;
+                  }
+
+                  .activity-chart-container {
+                    height: 80px;
+                    width: 100%;
+                  }
+                }
+              }
+
+              .week-labels {
+                display: flex;
+                justify-content: space-between;
+                font-size: 12px;
+                color: #999;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 1024px) {
+  .ecommerce-page {
+    .first-row {
+      grid-template-columns: 1fr;
+
+      .visitors-activity-card .card-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .ecommerce-page {
+    .first-row {
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+
+      .congratulations-card .congrats-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+
+        .congrats-illustration .trophy-image {
+          width: 80px;
+          height: 80px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,239 @@
+.ecommerce-page {
+  width: 100%;
+}
+.ecommerce-page .first-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.ecommerce-page .first-row .congratulations-card {
+  background: white;
+  min-height: 150px;
+  max-height: 200px;
+  position: relative;
+  overflow: visible;
+}
+.ecommerce-page .first-row .congratulations-card .card-body {
+  display: flex;
+  padding: 0;
+  height: 100%;
+}
+.ecommerce-page .first-row .congratulations-card .congrats-content {
+  height: 100%;
+  padding: 1.5rem;
+  padding-right: 0;
+}
+.ecommerce-page .first-row .congratulations-card .congrats-content .congrats-text {
+  flex: 1;
+}
+.ecommerce-page .first-row .congratulations-card .congrats-content .congrats-text .congrats-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+  color: #333;
+  white-space: nowrap;
+}
+.ecommerce-page .first-row .congratulations-card .congrats-content .congrats-text .congrats-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+.ecommerce-page .first-row .congratulations-card .congrats-content .congrats-text .congrats-amount {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+  color: #696cff;
+}
+.ecommerce-page .first-row .congratulations-card .congrats-content .congrats-text .congrats-target {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 12px 0;
+}
+.ecommerce-page .first-row .congratulations-card .congrats-content .congrats-text .view-sales-btn {
+  background: #696cff;
+  border: 1px solid #696cff;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.ecommerce-page .first-row .congratulations-card .congrats-content .congrats-text .view-sales-btn:hover {
+  background: #5a67d8;
+  border-color: #5a67d8;
+}
+.ecommerce-page .first-row .congratulations-card .congrats-illustration {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+.ecommerce-page .first-row .congratulations-card .congrats-illustration .trophy-image {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  display: block;
+}
+.ecommerce-page .first-row .visitors-activity-card {
+  max-height: 200px;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  position: relative;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #e5e7eb;
+  transform: translateX(-50%);
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .section-header,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .section-header .section-title,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .section-header .section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #555;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .section-header .section-period,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .section-header .section-period {
+  font-size: 12px;
+  color: #999;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats,
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .stats-left,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .stats-left,
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .stats-left,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats .stats-left {
+  flex: 1;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .stats-left .main-stat,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .stats-left .main-stat,
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .stats-left .main-stat,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats .stats-left .main-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 0;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .stats-left .main-stat .stat-number,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .stats-left .main-stat .stat-number,
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .stats-left .main-stat .stat-number,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats .stats-left .main-stat .stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .stats-left .main-stat .stat-change,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .stats-left .main-stat .stat-change,
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .stats-left .main-stat .stat-change,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats .stats-left .main-stat .stat-change {
+  font-size: 14px;
+  font-weight: 500;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .stats-left .main-stat .stat-change.positive,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .stats-left .main-stat .stat-change.positive,
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .stats-left .main-stat .stat-change.positive,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats .stats-left .main-stat .stat-change.positive {
+  color: #71dd37;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .stats-left .main-stat .stat-change.negative,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .stats-left .main-stat .stat-change.negative,
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .stats-left .main-stat .stat-change.negative,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats .stats-left .main-stat .stat-change.negative {
+  color: #ff4c4c;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .chart-section,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .chart-section,
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .chart-section,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats .chart-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 280px;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .chart-section .chart-placeholder,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .chart-section .chart-placeholder,
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .chart-section .chart-placeholder,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats .chart-section .chart-placeholder {
+  height: 80px;
+  margin-bottom: 8px;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .chart-section .chart-placeholder.visitors-chart,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .chart-section .chart-placeholder.visitors-chart,
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .chart-section .chart-placeholder.visitors-chart,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats .chart-section .chart-placeholder.visitors-chart {
+  display: block;
+  width: 100%;
+  height: 80px;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .chart-section .chart-placeholder.visitors-chart .visitors-chart-container,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .chart-section .chart-placeholder.visitors-chart .visitors-chart-container,
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .chart-section .chart-placeholder.visitors-chart .visitors-chart-container,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats .chart-section .chart-placeholder.visitors-chart .visitors-chart-container {
+  height: 80px;
+  width: 100%;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .chart-section .chart-placeholder.activity-chart .area-chart,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .chart-section .chart-placeholder.activity-chart .area-chart,
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .chart-section .chart-placeholder.activity-chart .area-chart,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats .chart-section .chart-placeholder.activity-chart .area-chart {
+  width: 100%;
+  height: 100%;
+}
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .chart-section .week-labels,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .chart-section .week-labels,
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .chart-section .week-labels,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats .chart-section .week-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #999;
+}
+@media (max-width: 1024px) {
+  .ecommerce-page .first-row {
+    grid-template-columns: 1fr;
+  }
+  .ecommerce-page .first-row .visitors-activity-card .card-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .ecommerce-page .first-row {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .ecommerce-page .first-row .congratulations-card .congrats-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  .ecommerce-page .first-row .congratulations-card .congrats-content .congrats-illustration .trophy-image {
+    width: 80px;
+    height: 80px;
+  }
+}
