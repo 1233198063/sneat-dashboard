@@ -122,13 +122,16 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 1rem;
+  gap: 0.5rem;
+  padding: 0 1rem;
 }
 .ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .stats-left,
 .ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .stats-left,
 .ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .stats-left,
 .ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats .stats-left {
-  flex: 1;
+  flex: 0 0 auto;
+  min-width: 100px;
+  max-width: 140px;
 }
 .ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .stats-left .main-stat,
 .ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .stats-left .main-stat,
@@ -173,7 +176,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  max-width: 280px;
+  min-width: 140px;
+  max-width: 200px;
 }
 .ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .chart-section .chart-placeholder,
 .ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .chart-section .chart-placeholder,
@@ -204,6 +208,13 @@
   width: 100%;
   height: 100%;
 }
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .chart-section .chart-placeholder.activity-chart .activity-chart-container,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .chart-section .chart-placeholder.activity-chart .activity-chart-container,
+.ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .chart-section .chart-placeholder.activity-chart .activity-chart-container,
+.ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .activity-stats .chart-section .chart-placeholder.activity-chart .activity-chart-container {
+  height: 80px;
+  width: 100%;
+}
 .ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .visitors-stats .chart-section .week-labels,
 .ecommerce-page .first-row .visitors-activity-card .card-content .activity-section .visitors-stats .chart-section .week-labels,
 .ecommerce-page .first-row .visitors-activity-card .card-content .visitors-section .activity-stats .chart-section .week-labels,
@@ -213,6 +224,342 @@
   font-size: 12px;
   color: #999;
 }
+.ecommerce-page .second-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.ecommerce-page .second-row .small-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+  height: 400px;
+  max-height: 400px;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card {
+  background: white;
+  height: 180px;
+  max-height: 180px;
+  min-height: 180px;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .card-body {
+  padding: 0px;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content {
+  padding: 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-icon.sales-icon .card-icon-image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-icon.transactions-icon .card-icon-image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats {
+  flex: 1;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats .stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats .stat-label {
+  font-size: 1rem;
+  color: rgba(50, 71, 92, 0.6);
+  font-weight: 600;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats .stat-change {
+  font-size: 14px;
+  font-weight: 500;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats .stat-change.positive {
+  color: #71dd37;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats .stat-change.negative {
+  color: #ff4c4c;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats .profit-chart {
+  margin-top: 8px;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats .profit-chart .mini-bars {
+  height: 60px;
+  margin-bottom: 4px;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats .profit-chart .mini-bars canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats .profit-chart .chart-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #999;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats .expenses-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 12px 0;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats .expenses-chart .circular-progress {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 8px;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats .expenses-chart .circular-progress canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats .expenses-chart .circular-progress .percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  pointer-events: none;
+}
+.ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-stats .expenses-info {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  line-height: 1.3;
+}
+.ecommerce-page .second-row .large-card {
+  background: white;
+  position: relative;
+  overflow: visible !important;
+  height: 100%;
+}
+.ecommerce-page .second-row .large-card.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.ecommerce-page .second-row .large-card .card-body {
+  padding: 1.2rem !important;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .left-section .left-header {
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .left-section .left-header .card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 4px 0;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .left-section .left-header .card-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .left-section .chart-legend {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .left-section .chart-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #666;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .left-section .chart-legend .legend-item .legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .left-section .chart-area {
+  flex: 1;
+  min-height: 200px;
+  max-height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .left-section .chart-area canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .vertical-divider {
+  width: 1px;
+  background: #D1D5DB;
+  flex-shrink: 0;
+  align-self: stretch;
+  margin: -1.5rem 1.5rem;
+  border-radius: 1px;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-shrink: 0;
+  height: 100%;
+  padding: 0;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem 0;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-top .report-header {
+  flex: 1;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-top .report-header .report-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 4px 0;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-top .report-header .report-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-top .report-actions .more-btn {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-top .report-actions .more-btn:hover {
+  background: #f5f5f5;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f5f5f9;
+  padding: 12px;
+  border-radius: 8px;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-icon {
+  background: white;
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-icon .icon-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-icon .icon-circle.blue {
+  background: #696cff;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-icon .icon-circle.yellow {
+  background: #ffab00;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-icon .icon-circle.cyan {
+  background: #03c3ec;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-icon .stat-icon-image {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-info {
+  flex: 1;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-info .stat-label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-info .stat-value-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-info .stat-value-row .stat-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-info .stat-value-row .stat-change {
+  font-size: 12px;
+  font-weight: 500;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-info .stat-value-row .stat-change.positive {
+  color: #71dd37;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-info .stat-value-row .stat-change.negative {
+  color: #ff4c4c;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-info .stat-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2px;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-info .stat-change {
+  font-size: 12px;
+  font-weight: 500;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-info .stat-change.positive {
+  color: #71dd37;
+}
+.ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-info .stat-change.negative {
+  color: #ff4c4c;
+}
 @media (max-width: 1024px) {
   .ecommerce-page .first-row {
     grid-template-columns: 1fr;
@@ -220,6 +567,30 @@
   .ecommerce-page .first-row .visitors-activity-card .card-content {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+  .ecommerce-page .second-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .ecommerce-page .second-row .small-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: auto;
+  }
+  .ecommerce-page .second-row .large-card .large-card-header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .ecommerce-page .second-row .large-card .large-card-header .right-header {
+    border-left: none;
+    padding-left: 0;
+  }
+  .ecommerce-page .second-row .large-card .large-card-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .ecommerce-page .second-row .large-card .large-card-content .stats-section {
+    border-left: none;
+    padding-left: 0;
   }
 }
 @media (max-width: 768px) {
@@ -235,5 +606,60 @@
   .ecommerce-page .first-row .congratulations-card .congrats-content .congrats-illustration .trophy-image {
     width: 80px;
     height: 80px;
+  }
+  .ecommerce-page .second-row {
+    gap: 1rem;
+  }
+  .ecommerce-page .second-row .small-cards-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .ecommerce-page .second-row .small-cards-grid .small-card {
+    min-height: 100px;
+  }
+  .ecommerce-page .second-row .small-cards-grid .small-card .small-card-content {
+    padding: 1rem;
+  }
+  .ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 8px;
+  }
+  .ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .card-icon::before {
+    font-size: 16px;
+  }
+  .ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .stat-value {
+    font-size: 20px;
+  }
+  .ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .expenses-chart .circular-progress {
+    width: 50px;
+    height: 50px;
+  }
+  .ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .expenses-chart .circular-progress .percentage {
+    font-size: 14px;
+  }
+  .ecommerce-page .second-row .small-cards-grid .small-card .small-card-content .profit-chart .mini-bars {
+    height: 30px;
+  }
+  .ecommerce-page .second-row .large-card .large-card-header {
+    padding: 1rem 1rem 0;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .ecommerce-page .second-row .large-card .large-card-header .right-header {
+    border-left: none;
+    padding-left: 0;
+  }
+  .ecommerce-page .second-row .large-card .large-card-content {
+    padding: 0 1rem 1rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .ecommerce-page .second-row .large-card .large-card-content .income-section .chart-placeholder {
+    height: 150px;
+  }
+  .ecommerce-page .second-row .large-card .large-card-content .stats-section {
+    border-left: none;
+    padding-left: 0;
   }
 }
