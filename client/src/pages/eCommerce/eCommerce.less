@@ -5,7 +5,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 
     .congratulations-card {
       background: white;
@@ -223,13 +223,13 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 
     .small-cards-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      gap: 1rem;
+      gap: 1.5rem;
       height: 400px;
       max-height: 400px;
 
@@ -620,6 +620,471 @@
                     &.negative {
                       color: #ff4c4c;
                     }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .third-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    .card-body{
+        padding: 0px;
+      }
+
+    .performance-card {
+      background: white;
+      height: 450px;
+
+      .performance-content {
+        padding: 1.25rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .performance-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 1rem;
+
+          .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+          }
+
+          .more-btn {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+
+            &:hover {
+              background: #f5f5f5;
+            }
+          }
+        }
+
+        .performance-stats {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1rem;
+
+          .stat-item {
+            .stat-label {
+              font-size: 14px;
+              color: #666;
+              font-weight: 500;
+            }
+          }
+        }
+
+        .performance-chart {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          .performance-radar-chart {
+            width: 100%;
+            max-width: 320px;
+            
+            .chart-container {
+              height: 280px;
+              position: relative;
+              margin-bottom: 1rem;
+            }
+
+            .chart-legend {
+              display: flex;
+              justify-content: center;
+              gap: 1.5rem;
+              font-size: 12px;
+              color: #666;
+
+              .legend-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                .legend-dot {
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 50%;
+                  flex-shrink: 0;
+                }
+
+                span {
+                  font-weight: 500;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .conversion-rate-card {
+      background: white;
+      height: 450px;
+
+      .conversion-content {
+        padding: 1.25rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .conversion-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-bottom: 1rem;
+
+          .header-left {
+            .card-title {
+              font-size: 18px;
+              font-weight: 600;
+              color: #333;
+              margin: 0 0 4px 0;
+            }
+
+            .card-subtitle {
+              font-size: 12px;
+              color: #999;
+              margin: 0;
+            }
+          }
+
+          .more-btn {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+
+            &:hover {
+              background: #f5f5f5;
+            }
+          }
+        }
+
+        .conversion-main-section {
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+          margin-bottom: 1rem;
+
+          .conversion-main-stat {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+
+            .main-percentage {
+              font-size: 32px;
+              font-weight: 700;
+              color: #333;
+            }
+
+            .change-indicator {
+              font-size: 14px;
+              font-weight: 500;
+
+              &.positive {
+                color: #71dd37;
+              }
+
+              &.negative {
+                color: #ff4c4c;
+              }
+            }
+          }
+
+          .conversion-chart {
+            flex: 0 0 160px;
+            height: 90px;
+            max-width: 160px;
+            margin-left: 1rem;
+
+            .conversion-line-chart {
+              width: 100%;
+              height: 100%;
+              
+              .chart-container {
+                height: 90px;
+                position: relative;
+              }
+            }
+          }
+        }
+
+        .conversion-funnel {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          .funnel-step {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+
+            .step-left {
+              display: flex;
+              flex-direction: column;
+              gap: 4px;
+
+              .step-label {
+                font-size: 14px;
+                color: #333;
+                font-weight: 500;
+              }
+
+              .step-value {
+                font-size: 12px;
+                color: #666;
+              }
+            }
+
+            .step-stats {
+              display: flex;
+              align-items: center;
+
+              .step-change {
+                font-size: 12px;
+                font-weight: 500;
+
+                &.positive {
+                  color: #71dd37;
+                }
+
+                &.negative {
+                  color: #ff4c4c;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .right-composite {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      height: 450px;
+
+      .top-small-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        height: 180px;
+
+        .revenue-small-card,
+        .sales-small-card {
+          background: white;
+
+          .small-card-content {
+            padding: 1.25rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .card-icon {
+              width: 40px;
+              height: 40px;
+              border-radius: 8px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-bottom: 16px;
+
+              .card-icon-image {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+              }
+            }
+
+            .card-stats {
+              .stat-label {
+                font-size: 14px;
+                color: #666;
+                font-weight: 500;
+                margin-bottom: 4px;
+              }
+
+              .stat-value {
+                font-size: 20px;
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 4px;
+              }
+
+              .stat-change {
+                font-size: 12px;
+                font-weight: 500;
+
+                &.positive {
+                  color: #71dd37;
+                }
+              }
+
+              .sales-target {
+                margin-top: 12px;
+
+                .target-label {
+                  font-size: 12px;
+                  color: #666;
+                  margin-bottom: 8px;
+                }
+
+                .progress-container {
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+
+                  .progress-bar {
+                    flex: 1;
+                    height: 6px;
+                    background: #f0f2f8;
+                    border-radius: 3px;
+                    overflow: hidden;
+
+                    .progress-fill {
+                      height: 100%;
+                      background: #03c3ec;
+                      border-radius: 3px;
+                      transition: width 0.3s ease;
+                    }
+                  }
+
+                  .target-percentage {
+                    font-size: 12px;
+                    color: #333;
+                    font-weight: 500;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .expenses-large-card {
+        background: white;
+        flex: 1;
+
+        .expenses-content {
+          padding: 1.25rem;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+
+          .expenses-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+
+            .card-title {
+              font-size: 18px;
+              font-weight: 600;
+              color: #333;
+              margin: 0;
+            }
+
+            .more-btn {
+              background: none;
+              border: none;
+              color: #999;
+              cursor: pointer;
+              padding: 4px;
+              border-radius: 4px;
+              transition: background-color 0.2s;
+
+              &:hover {
+                background: #f5f5f5;
+              }
+            }
+          }
+
+          .expenses-body {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+
+            .expenses-left {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+
+              .expenses-main-stat {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 0.5rem;
+
+                .main-amount {
+                  font-size: 28px;
+                  font-weight: 700;
+                  color: #333;
+                }
+
+                .change-indicator {
+                  font-size: 14px;
+                  font-weight: 500;
+
+                  &.negative {
+                    color: #ff4c4c;
+                  }
+                }
+              }
+
+              .chart-label {
+                font-size: 12px;
+                color: #999;
+                font-weight: 500;
+              }
+            }
+
+            .expenses-right {
+              flex: 1;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              .expenses-chart {
+                width: 100%;
+                max-width: 140px;
+
+                .expenses-bar-chart {
+                  width: 100%;
+                  height: 100%;
+                  
+                  .chart-container {
+                    height: 170px;
+                    position: relative;
                   }
                 }
               }

@@ -7,6 +7,9 @@ import ActivityChart from '../../components/charts/ActivityChart';
 import ExpensesChart from '../../components/charts/ExpensesChart';
 import ECommerceProfitChart from '../../components/charts/ECommerceProfitChart';
 import TotalIncomeChart from '../../components/charts/TotalIncomeChart';
+import PerformanceRadarChart from '../../components/charts/PerformanceRadarChart';
+import ConversionLineChart from '../../components/charts/ConversionLineChart';
+import ExpensesBarChart from '../../components/charts/ExpensesBarChart';
 import './eCommerce.less';
 
 const ECommerce = () => {
@@ -221,6 +224,170 @@ const ECommerce = () => {
             </div>
           </div>
         </Card>
+      </div>
+
+      {/* Third Row */}
+      <div className="third-row">
+        {/* Performance Card - Left 1/3 */}
+        <Card className="performance-card">
+          <div className="performance-content">
+            <div className="performance-header">
+              <h3 className="card-title">Performance</h3>
+              <button className="more-btn">
+                <MoreHorizontal size={20} />
+              </button>
+            </div>
+            
+            <div className="performance-stats">
+              <div className="stat-item">
+                <div className="stat-label">Earning: $846.17</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-label">Sales: 25.7M</div>
+              </div>
+            </div>
+
+            <div className="performance-chart">
+              <PerformanceRadarChart />
+            </div>
+          </div>
+        </Card>
+
+        {/* Conversion Rate Card - Middle 1/3 */}
+        <Card className="conversion-rate-card">
+          <div className="conversion-content">
+            <div className="conversion-header">
+              <div className="header-left">
+                <h3 className="card-title">Conversion Rate</h3>
+                <p className="card-subtitle">Compared To Last Month</p>
+              </div>
+              <button className="more-btn">
+                <MoreHorizontal size={20} />
+              </button>
+            </div>
+
+            <div className="conversion-main-section">
+              <div className="conversion-main-stat">
+                <span className="main-percentage">8.72%</span>
+                <span className="change-indicator positive">↑ 4.8%</span>
+              </div>
+
+              <div className="conversion-chart">
+                <ConversionLineChart />
+              </div>
+            </div>
+
+            <div className="conversion-funnel">
+              <div className="funnel-step">
+                <div className="step-left">
+                  <div className="step-label">Impressions</div>
+                  <div className="step-value">12.4k Visits</div>
+                </div>
+                <div className="step-stats">
+                  <span className="step-change positive">↑ 12.8%</span>
+                </div>
+              </div>
+              
+              <div className="funnel-step">
+                <div className="step-left">
+                  <div className="step-label">Added To Cart</div>
+                  <div className="step-value">32 Product in cart</div>
+                </div>
+                <div className="step-stats">
+                  <span className="step-change negative">↓ -8.3%</span>
+                </div>
+              </div>
+              
+              <div className="funnel-step">
+                <div className="step-left">
+                  <div className="step-label">Checkout</div>
+                  <div className="step-value">21 Product checkout</div>
+                </div>
+                <div className="step-stats">
+                  <span className="step-change positive">↑ 9.12%</span>
+                </div>
+              </div>
+              
+              <div className="funnel-step">
+                <div className="step-left">
+                  <div className="step-label">Purchased</div>
+                  <div className="step-value">12 Orders</div>
+                </div>
+                <div className="step-stats">
+                  <span className="step-change positive">↑ 2.24%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        {/* Right Side Composite - Right 1/3 */}
+        <div className="right-composite">
+          {/* Top Two Small Cards */}
+          <div className="top-small-cards">
+            <Card className="revenue-small-card">
+              <div className="small-card-content">
+                <div className="card-icon revenue-icon">
+                  <img src="/images/stats-vertical-desktop.png" alt="Revenue" className="card-icon-image" />
+                </div>
+                <div className="card-stats">
+                  <div className="stat-label">Revenue</div>
+                  <div className="stat-value">$42,389</div>
+                  <div className="stat-change positive">↑ 52.76%</div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="sales-small-card">
+              <div className="small-card-content">
+                <div className="card-stats">
+                  <div className="stat-label">Sales</div>
+                  <div className="stat-value">482k</div>
+                  <div className="stat-change positive">+34%</div>
+                  <div className="sales-target">
+                    <div className="target-label">Sales Target</div>
+                    <div className="progress-container">
+                      <div className="progress-bar">
+                        <div className="progress-fill" style={{width: '78%'}}></div>
+                      </div>
+                      <div className="target-percentage">78%</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Bottom Large Card */}
+          <Card className="expenses-large-card">
+            <div className="expenses-content">
+              <div className="expenses-header">
+                <div className="header-left">
+                  <h3 className="card-title">Expenses</h3>
+                </div>
+                <button className="more-btn">
+                  <MoreHorizontal size={20} />
+                </button>
+              </div>
+              
+              <div className="expenses-body">
+                <div className="expenses-left">
+                  <div className="expenses-main-stat">
+                    <span className="main-amount">$84.7k</span>
+                    <span className="change-indicator negative">↓ 8.2%</span>
+                  </div>
+                  <div className="chart-label">JULY 2025</div>
+                </div>
+                
+                <div className="expenses-right">
+                  <div className="expenses-chart">
+                    <ExpensesBarChart />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
       </div>
 
       <FixedButtons />

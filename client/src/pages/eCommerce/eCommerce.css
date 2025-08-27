@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 .ecommerce-page .first-row .congratulations-card {
   background: white;
@@ -228,13 +228,13 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 .ecommerce-page .second-row .small-cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 1rem;
+  gap: 1.5rem;
   height: 400px;
   max-height: 400px;
 }
@@ -559,6 +559,403 @@
 }
 .ecommerce-page .second-row .large-card .revenue-main-container .right-section .right-bottom .income-stats .stat-item .stat-info .stat-change.negative {
   color: #ff4c4c;
+}
+.ecommerce-page .third-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.ecommerce-page .third-row .card-body {
+  padding: 0px;
+}
+.ecommerce-page .third-row .performance-card {
+  background: white;
+  height: 450px;
+}
+.ecommerce-page .third-row .performance-card .performance-content {
+  padding: 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.ecommerce-page .third-row .performance-card .performance-content .performance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.ecommerce-page .third-row .performance-card .performance-content .performance-header .card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+.ecommerce-page .third-row .performance-card .performance-content .performance-header .more-btn {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+.ecommerce-page .third-row .performance-card .performance-content .performance-header .more-btn:hover {
+  background: #f5f5f5;
+}
+.ecommerce-page .third-row .performance-card .performance-content .performance-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.ecommerce-page .third-row .performance-card .performance-content .performance-stats .stat-item .stat-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+.ecommerce-page .third-row .performance-card .performance-content .performance-chart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ecommerce-page .third-row .performance-card .performance-content .performance-chart .performance-radar-chart {
+  width: 100%;
+  max-width: 320px;
+}
+.ecommerce-page .third-row .performance-card .performance-content .performance-chart .performance-radar-chart .chart-container {
+  height: 280px;
+  position: relative;
+  margin-bottom: 1rem;
+}
+.ecommerce-page .third-row .performance-card .performance-content .performance-chart .performance-radar-chart .chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 12px;
+  color: #666;
+}
+.ecommerce-page .third-row .performance-card .performance-content .performance-chart .performance-radar-chart .chart-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ecommerce-page .third-row .performance-card .performance-content .performance-chart .performance-radar-chart .chart-legend .legend-item .legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ecommerce-page .third-row .performance-card .performance-content .performance-chart .performance-radar-chart .chart-legend .legend-item span {
+  font-weight: 500;
+}
+.ecommerce-page .third-row .conversion-rate-card {
+  background: white;
+  height: 450px;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content {
+  padding: 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-header .header-left .card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 4px 0;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-header .header-left .card-subtitle {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-header .more-btn {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-header .more-btn:hover {
+  background: #f5f5f5;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-main-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-main-section .conversion-main-stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-main-section .conversion-main-stat .main-percentage {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-main-section .conversion-main-stat .change-indicator {
+  font-size: 14px;
+  font-weight: 500;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-main-section .conversion-main-stat .change-indicator.positive {
+  color: #71dd37;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-main-section .conversion-main-stat .change-indicator.negative {
+  color: #ff4c4c;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-main-section .conversion-chart {
+  flex: 0 0 160px;
+  height: 90px;
+  max-width: 160px;
+  margin-left: 1rem;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-main-section .conversion-chart .conversion-line-chart {
+  width: 100%;
+  height: 100%;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-main-section .conversion-chart .conversion-line-chart .chart-container {
+  height: 90px;
+  position: relative;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-funnel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-funnel .funnel-step {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-funnel .funnel-step .step-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-funnel .funnel-step .step-left .step-label {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-funnel .funnel-step .step-left .step-value {
+  font-size: 12px;
+  color: #666;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-funnel .funnel-step .step-stats {
+  display: flex;
+  align-items: center;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-funnel .funnel-step .step-stats .step-change {
+  font-size: 12px;
+  font-weight: 500;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-funnel .funnel-step .step-stats .step-change.positive {
+  color: #71dd37;
+}
+.ecommerce-page .third-row .conversion-rate-card .conversion-content .conversion-funnel .funnel-step .step-stats .step-change.negative {
+  color: #ff4c4c;
+}
+.ecommerce-page .third-row .right-composite {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 450px;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  height: 180px;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards .revenue-small-card,
+.ecommerce-page .third-row .right-composite .top-small-cards .sales-small-card {
+  background: white;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards .revenue-small-card .small-card-content,
+.ecommerce-page .third-row .right-composite .top-small-cards .sales-small-card .small-card-content {
+  padding: 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards .revenue-small-card .small-card-content .card-icon,
+.ecommerce-page .third-row .right-composite .top-small-cards .sales-small-card .small-card-content .card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards .revenue-small-card .small-card-content .card-icon .card-icon-image,
+.ecommerce-page .third-row .right-composite .top-small-cards .sales-small-card .small-card-content .card-icon .card-icon-image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards .revenue-small-card .small-card-content .card-stats .stat-label,
+.ecommerce-page .third-row .right-composite .top-small-cards .sales-small-card .small-card-content .card-stats .stat-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards .revenue-small-card .small-card-content .card-stats .stat-value,
+.ecommerce-page .third-row .right-composite .top-small-cards .sales-small-card .small-card-content .card-stats .stat-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards .revenue-small-card .small-card-content .card-stats .stat-change,
+.ecommerce-page .third-row .right-composite .top-small-cards .sales-small-card .small-card-content .card-stats .stat-change {
+  font-size: 12px;
+  font-weight: 500;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards .revenue-small-card .small-card-content .card-stats .stat-change.positive,
+.ecommerce-page .third-row .right-composite .top-small-cards .sales-small-card .small-card-content .card-stats .stat-change.positive {
+  color: #71dd37;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards .revenue-small-card .small-card-content .card-stats .sales-target,
+.ecommerce-page .third-row .right-composite .top-small-cards .sales-small-card .small-card-content .card-stats .sales-target {
+  margin-top: 12px;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards .revenue-small-card .small-card-content .card-stats .sales-target .target-label,
+.ecommerce-page .third-row .right-composite .top-small-cards .sales-small-card .small-card-content .card-stats .sales-target .target-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards .revenue-small-card .small-card-content .card-stats .sales-target .progress-container,
+.ecommerce-page .third-row .right-composite .top-small-cards .sales-small-card .small-card-content .card-stats .sales-target .progress-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards .revenue-small-card .small-card-content .card-stats .sales-target .progress-container .progress-bar,
+.ecommerce-page .third-row .right-composite .top-small-cards .sales-small-card .small-card-content .card-stats .sales-target .progress-container .progress-bar {
+  flex: 1;
+  height: 6px;
+  background: #f0f2f8;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards .revenue-small-card .small-card-content .card-stats .sales-target .progress-container .progress-bar .progress-fill,
+.ecommerce-page .third-row .right-composite .top-small-cards .sales-small-card .small-card-content .card-stats .sales-target .progress-container .progress-bar .progress-fill {
+  height: 100%;
+  background: #03c3ec;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+.ecommerce-page .third-row .right-composite .top-small-cards .revenue-small-card .small-card-content .card-stats .sales-target .progress-container .target-percentage,
+.ecommerce-page .third-row .right-composite .top-small-cards .sales-small-card .small-card-content .card-stats .sales-target .progress-container .target-percentage {
+  font-size: 12px;
+  color: #333;
+  font-weight: 500;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card {
+  background: white;
+  flex: 1;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content {
+  padding: 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-header .card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-header .more-btn {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-header .more-btn:hover {
+  background: #f5f5f5;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-body .expenses-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-body .expenses-left .expenses-main-stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.5rem;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-body .expenses-left .expenses-main-stat .main-amount {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-body .expenses-left .expenses-main-stat .change-indicator {
+  font-size: 14px;
+  font-weight: 500;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-body .expenses-left .expenses-main-stat .change-indicator.negative {
+  color: #ff4c4c;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-body .expenses-left .chart-label {
+  font-size: 12px;
+  color: #999;
+  font-weight: 500;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-body .expenses-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-body .expenses-right .expenses-chart {
+  width: 100%;
+  max-width: 140px;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-body .expenses-right .expenses-chart .expenses-bar-chart {
+  width: 100%;
+  height: 100%;
+}
+.ecommerce-page .third-row .right-composite .expenses-large-card .expenses-content .expenses-body .expenses-right .expenses-chart .expenses-bar-chart .chart-container {
+  height: 170px;
+  position: relative;
 }
 @media (max-width: 1024px) {
   .ecommerce-page .first-row {
