@@ -10,6 +10,7 @@ import TotalIncomeChart from '../../components/charts/TotalIncomeChart';
 import PerformanceRadarChart from '../../components/charts/PerformanceRadarChart';
 import ConversionLineChart from '../../components/charts/ConversionLineChart';
 import ExpensesBarChart from '../../components/charts/ExpensesBarChart';
+import TotalBalanceChart from '../../components/charts/TotalBalanceChart';
 import './eCommerce.less';
 
 const ECommerce = () => {
@@ -388,6 +389,292 @@ const ECommerce = () => {
             </div>
           </Card>
         </div>
+      </div>
+
+      {/* Fourth Row */}
+      <div className="fourth-row">
+        {/* Products Table Card - Left 2/3 */}
+        <Card className="products-table-card">
+          <div className="products-content">
+            
+            <div className="products-table">
+              <div className="table-header">
+                <div className="col-product">PRODUCT</div>
+                <div className="col-category">CATEGORY</div>
+                <div className="col-payment">PAYMENT</div>
+                <div className="col-order-status">ORDER STATUS</div>
+                <div className="col-actions">ACTIONS</div>
+              </div>
+              
+              <div className="table-body">
+                <div className="table-row">
+                  <div className="col-product">
+                    <div className="product-info">
+                      <img src="/images/products/oneplus-7pro-light.png" alt="OnePlus 7Pro" className="product-image" />
+                      <div className="product-details">
+                        <div className="product-name">OnePlus 7Pro</div>
+                        <div className="product-brand">OnePlus</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-category">
+                    <div className="category-badge smartphone-category">
+                      <div className="category-icon"></div>
+                      <span>Smart Phone</span>
+                    </div>
+                  </div>
+                  <div className="col-payment">
+                    <div className="payment-info">
+                      <div className="payment-amount">$120/$499</div>
+                      <div className="payment-status">Partially Paid</div>
+                    </div>
+                  </div>
+                  <div className="col-order-status">
+                    <span className="status-badge confirmed">CONFIRMED</span>
+                  </div>
+                  <div className="col-actions">
+                    <button className="actions-btn">
+                      <MoreHorizontal size={16} />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="table-row">
+                  <div className="col-product">
+                    <div className="product-info">
+                      <img src="/images/products/apple-magic-mouse-light.png" alt="Magic Mouse" className="product-image" />
+                      <div className="product-details">
+                        <div className="product-name">Magic Mouse</div>
+                        <div className="product-brand">Apple</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-category">
+                    <div className="category-badge mouse-category">
+                      <div className="category-icon"></div>
+                      <span>Mouse</span>
+                    </div>
+                  </div>
+                  <div className="col-payment">
+                    <div className="payment-info">
+                      <div className="payment-amount">$149</div>
+                      <div className="payment-status">Fully Paid</div>
+                    </div>
+                  </div>
+                  <div className="col-order-status">
+                    <span className="status-badge completed">COMPLETED</span>
+                  </div>
+                  <div className="col-actions">
+                    <button className="actions-btn">
+                      <MoreHorizontal size={16} />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="table-row">
+                  <div className="col-product">
+                    <div className="product-info">
+                      <img src="/images/products/apple-iMac-pro-light.png" alt="iMac Pro" className="product-image" />
+                      <div className="product-details">
+                        <div className="product-name">iMac Pro</div>
+                        <div className="product-brand">Apple</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-category">
+                    <div className="category-badge computer-category">
+                      <div className="category-icon"></div>
+                      <span>Computer</span>
+                    </div>
+                  </div>
+                  <div className="col-payment">
+                    <div className="payment-info">
+                      <div className="payment-amount">$0/$899</div>
+                      <div className="payment-status">Unpaid</div>
+                    </div>
+                  </div>
+                  <div className="col-order-status">
+                    <span className="status-badge cancelled">CANCELLED</span>
+                  </div>
+                  <div className="col-actions">
+                    <button className="actions-btn">
+                      <MoreHorizontal size={16} />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="table-row">
+                  <div className="col-product">
+                    <div className="product-info">
+                      <img src="/images/products/samsung-note-10-light.png" alt="Note 10" className="product-image" />
+                      <div className="product-details">
+                        <div className="product-name">Note 10</div>
+                        <div className="product-brand">Samsung</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-category">
+                    <div className="category-badge smartphone-category">
+                      <div className="category-icon"></div>
+                      <span>Smart Phone</span>
+                    </div>
+                  </div>
+                  <div className="col-payment">
+                    <div className="payment-info">
+                      <div className="payment-amount">$169</div>
+                      <div className="payment-status">Fully Paid</div>
+                    </div>
+                  </div>
+                  <div className="col-order-status">
+                    <span className="status-badge completed">COMPLETED</span>
+                  </div>
+                  <div className="col-actions">
+                    <button className="actions-btn">
+                      <MoreHorizontal size={16} />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="table-row">
+                  <div className="col-product">
+                    <div className="product-info">
+                      <img src="/images/products/apple-iPhone-11-pro-light.png" alt="iPhone 11 Pro" className="product-image" />
+                      <div className="product-details">
+                        <div className="product-name">iPhone 11 Pro</div>
+                        <div className="product-brand">Apple</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-category">
+                    <div className="category-badge smartphone-category">
+                      <div className="category-icon"></div>
+                      <span>Smart Phone</span>
+                    </div>
+                  </div>
+                  <div className="col-payment">
+                    <div className="payment-info">
+                      <div className="payment-amount">$399</div>
+                      <div className="payment-status">Fully Paid</div>
+                    </div>
+                  </div>
+                  <div className="col-order-status">
+                    <span className="status-badge completed">COMPLETED</span>
+                  </div>
+                  <div className="col-actions">
+                    <button className="actions-btn">
+                      <MoreHorizontal size={16} />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="table-row">
+                  <div className="col-product">
+                    <div className="product-info">
+                      <img src="/images/products/mi-led-tv-4x-light.png" alt="Mi Led TV 4X" className="product-image" />
+                      <div className="product-details">
+                        <div className="product-name">Mi Led TV 4X</div>
+                        <div className="product-brand">Xiaomi</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-category">
+                    <div className="category-badge tv-category">
+                      <div className="category-icon"></div>
+                      <span>Smart TV</span>
+                    </div>
+                  </div>
+                  <div className="col-payment">
+                    <div className="payment-info">
+                      <div className="payment-amount">$349/$2599</div>
+                      <div className="payment-status">Partially Paid</div>
+                    </div>
+                  </div>
+                  <div className="col-order-status">
+                    <span className="status-badge confirmed">CONFIRMED</span>
+                  </div>
+                  <div className="col-actions">
+                    <button className="actions-btn">
+                      <MoreHorizontal size={16} />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="table-row">
+                  <div className="col-product">
+                    <div className="product-info">
+                      <img src="/images/products/logitech-mx-light.png" alt="Logitech MX" className="product-image" />
+                      <div className="product-details">
+                        <div className="product-name">Logitech MX</div>
+                        <div className="product-brand">Logitech</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-category">
+                    <div className="category-badge mouse-category">
+                      <div className="category-icon"></div>
+                      <span>Mouse</span>
+                    </div>
+                  </div>
+                  <div className="col-payment">
+                    <div className="payment-info">
+                      <div className="payment-amount">$89</div>
+                      <div className="payment-status">Fully Paid</div>
+                    </div>
+                  </div>
+                  <div className="col-order-status">
+                    <span className="status-badge completed">COMPLETED</span>
+                  </div>
+                  <div className="col-actions">
+                    <button className="actions-btn">
+                      <MoreHorizontal size={16} />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        {/* Total Balance Card - Right 1/3 */}
+        <Card className="total-balance-card">
+          <div className="balance-content">
+            <div className="balance-header">
+              <h3 className="card-title">Total Balance</h3>
+              <button className="more-btn">
+                <MoreHorizontal size={20} />
+              </button>
+            </div>
+            
+            <div className="balance-amounts">
+              <div className="balance-item">
+                <img src="/images/wallet-info.png" alt="Wallet" className="balance-icon" />
+                <div className="balance-info">
+                  <div className="balance-amount">$2.54k</div>
+                  <div className="balance-label">Wallet</div>
+                </div>
+              </div>
+              <div className="balance-item">
+                <img src="/images/paypal-primary.png" alt="Paypal" className="balance-icon" />
+                <div className="balance-info">
+                  <div className="balance-amount">$4.21k</div>
+                  <div className="balance-label">Paypal</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="balance-chart">
+              <TotalBalanceChart />
+            </div>
+
+            <div className="balance-footer">
+              <div className="progress-info">
+                <div className="progress-text">You have done 57.6% more sales.</div>
+                <div className="progress-subtext">Check your new badge in your profile.</div>
+              </div>
+              <div className="progress-arrow">→</div>
+            </div>
+          </div>
+        </Card>
       </div>
 
       <FixedButtons />
