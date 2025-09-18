@@ -4,8 +4,9 @@ const mongoose = require('mongoose')
 const app = require('./app')
 
 // Start API
-app.listen(8080,()=>{
-    console.log('server is running on port 8080...');
+const PORT = process.env.PORT || 3001;
+app.listen(PORT,()=>{
+    console.log(`server is running on port ${PORT}...`);
 })
 
 class AnalyticsService {

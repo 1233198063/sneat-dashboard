@@ -12,14 +12,22 @@ const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 const connectDB = require('./config/database');
+const { connectMySQL } = require('./config/mysql');
 // const authRoutes = require('./routes/auth');
 const analyticsRoutes = require('./routes/analytics');
 const dashboardRoutes = require('./routes/dashboard');
+// Use mock email routes if MySQL is not available
+const emailRoutes = require('./routes/email-mock');
 
 const app = express()
 
 // Connect to MongoDB
 connectDB();
+
+// Try to connect to MySQL (optional for now)
+connectMySQL().catch(err => {
+  console.log('MySQL not available, continuing without database...');
+});
 
 app.use(bodyParser.json())
 
@@ -65,6 +73,7 @@ app.use('/static', express.static('static'));
 // app.use('/api/auth', authRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/emails', emailRoutes);
 
 // Root route
 app.get('/', (req, res) => {
